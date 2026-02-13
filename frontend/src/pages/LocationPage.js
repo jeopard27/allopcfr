@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { MapPin, Phone, CheckCircle, Clock, Zap, Shield, HardDrive, Wifi } from 'lucide-react';
 import { Link } from 'react-router-dom';
