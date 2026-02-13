@@ -42,35 +42,35 @@ const LOCATIONS = [
 
 export default function Zones() {
   return (
-    <section id="zones" className="py-20 md:py-32 bg-white" data-testid="zones-section">
+    <section id="zones" className="py-16 md:py-24 bg-white" data-testid="zones-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block font-outfit font-semibold text-tech-blue text-sm uppercase tracking-widest mb-4">
+        <div className="text-center mb-12">
+          <span className="inline-block font-heading font-semibold text-brand-blue text-sm uppercase tracking-widest mb-4">
             Zones d'intervention
           </span>
-          <h2 className="font-outfit font-extrabold text-4xl md:text-5xl text-deep-navy tracking-tight mb-6">
-            PRÈS DE CHEZ VOUS
+          <h2 className="font-heading font-bold text-3xl md:text-4xl text-brand-navy mb-4">
+            Dépannage PC & Mac près de chez vous
           </h2>
-          <p className="font-ibm text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="font-body text-lg text-gray-600 max-w-2xl mx-auto">
             Nous intervenons rapidement dans l'Ouest parisien et les communes limitrophes
           </p>
         </div>
 
-        {/* Map placeholder + Locations */}
+        {/* Map + Locations */}
         <div className="grid lg:grid-cols-5 gap-6">
           {/* Map */}
-          <div className="lg:col-span-2 relative rounded overflow-hidden h-64 lg:h-auto min-h-[300px]">
+          <div className="lg:col-span-2 relative rounded-xl overflow-hidden h-64 lg:h-auto min-h-[300px]">
             <img
               src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80"
               alt="Carte de Paris"
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-deep-navy/60 flex items-center justify-center">
+            <div className="absolute inset-0 bg-brand-navy/70 flex items-center justify-center">
               <div className="text-center text-white p-6">
-                <MapPin className="w-12 h-12 mx-auto mb-4 text-alert-orange" />
-                <p className="font-outfit font-bold text-2xl mb-2">Paris Ouest</p>
-                <p className="font-ibm text-sm opacity-90">& communes limitrophes</p>
+                <MapPin className="w-12 h-12 mx-auto mb-4 text-brand-blue-light" />
+                <p className="font-heading font-bold text-2xl mb-2">Paris Ouest</p>
+                <p className="font-body text-sm opacity-90">& communes limitrophes</p>
               </div>
             </div>
           </div>
@@ -81,28 +81,28 @@ export default function Zones() {
               <Link
                 key={location.slug}
                 to={location.path}
-                className={`block p-6 rounded border transition-all hover:shadow-lg hover:-translate-y-1 ${
+                className={`block p-5 rounded-xl border transition-all hover:shadow-lg hover:-translate-y-1 ${
                   location.featured 
-                    ? 'bg-tech-blue text-white border-tech-blue' 
-                    : 'bg-white border-gray-200 hover:border-tech-blue'
+                    ? 'bg-brand-blue text-white border-brand-blue' 
+                    : 'bg-white border-gray-200 hover:border-brand-blue'
                 }`}
                 data-testid={`zone-${location.slug}`}
               >
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className={`font-outfit font-bold text-lg ${location.featured ? 'text-white' : 'text-deep-navy'}`}>
+                <div className="flex items-start justify-between mb-2">
+                  <h3 className={`font-heading font-bold text-lg ${location.featured ? 'text-white' : 'text-brand-navy'}`}>
                     {location.name}
                   </h3>
-                  <span className={`text-xs font-ibm px-2 py-1 rounded ${
-                    location.featured ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-600'
+                  <span className={`text-xs font-body px-2 py-1 rounded ${
+                    location.featured ? 'bg-white/20 text-white' : 'bg-brand-sky text-brand-blue'
                   }`}>
                     {location.postalCode}
                   </span>
                 </div>
-                <p className={`font-ibm text-sm ${location.featured ? 'text-white/80' : 'text-gray-500'}`}>
+                <p className={`font-body text-sm ${location.featured ? 'text-white/80' : 'text-gray-500'}`}>
                   {location.neighborhoods.join(" • ")}
                 </p>
                 {location.featured && (
-                  <span className="inline-block mt-3 text-xs font-outfit font-semibold bg-alert-orange px-3 py-1 rounded">
+                  <span className="inline-block mt-3 text-xs font-heading font-semibold bg-white/20 px-3 py-1 rounded">
                     SIÈGE SOCIAL
                   </span>
                 )}
