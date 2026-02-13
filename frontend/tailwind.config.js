@@ -8,8 +8,8 @@ module.exports = {
   theme: {
         extend: {
                 fontFamily: {
-                        'outfit': ['Outfit', 'sans-serif'],
-                        'ibm': ['IBM Plex Sans', 'sans-serif'],
+                        'heading': ['Montserrat', 'sans-serif'],
+                        'body': ['Open Sans', 'sans-serif'],
                 },
                 borderRadius: {
                         lg: 'var(--radius)',
@@ -17,10 +17,12 @@ module.exports = {
                         sm: 'calc(var(--radius) - 4px)'
                 },
                 colors: {
-                        'tech-blue': '#0047FF',
-                        'alert-orange': '#FF4F00',
-                        'deep-navy': '#0B1120',
-                        'clinical-white': '#FAFAFA',
+                        'brand-blue': '#1a5fb4',
+                        'brand-blue-dark': '#0d3b7a',
+                        'brand-blue-light': '#3584e4',
+                        'brand-navy': '#0a2540',
+                        'brand-sky': '#e8f4fc',
+                        'brand-accent': '#2563eb',
                         background: 'hsl(var(--background))',
                         foreground: 'hsl(var(--foreground))',
                         card: {
