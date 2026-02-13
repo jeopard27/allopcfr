@@ -1,34 +1,114 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
+/* Global styles for Allo PC Dépannage */
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
-}
-
-.App-header {
-    background-color: #0f0f10;
+.App {
     min-height: 100vh;
+}
+
+/* Hero animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.float-animation {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Pulse animation for phone */
+@keyframes pulse-phone {
+    0% { box-shadow: 0 0 0 0 rgba(255, 79, 0, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 79, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 79, 0, 0); }
+}
+
+.pulse-phone {
+    animation: pulse-phone 2s infinite;
+}
+
+/* Bento grid hover effects */
+.bento-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bento-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Button hover effects */
+.btn-primary {
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+    transform: scale(1.02);
+    filter: brightness(1.1);
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+/* Link underline animation */
+.link-underline {
+    position: relative;
+}
+
+.link-underline::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #0047FF;
+    transition: width 0.3s ease;
+}
+
+.link-underline:hover::after {
+    width: 100%;
+}
+
+/* FAQ accordion */
+.faq-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+/* Mobile call bar */
+.mobile-call-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: linear-gradient(135deg, #FF4F00 0%, #ff6b2b 100%);
+    padding: 12px 16px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+    align-items: center;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
 }
 
-.App-link {
-    color: #61dafb;
+@media (min-width: 768px) {
+    .mobile-call-bar {
+        display: none;
+    }
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+/* Smooth section transitions */
+section {
+    opacity: 1;
+}
+
+/* Image lazy loading placeholder */
+.img-placeholder {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
 }
