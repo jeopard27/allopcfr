@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Monitor, Apple } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const COMPANY = {
@@ -10,11 +10,11 @@ const COMPANY = {
 };
 
 const SERVICES_LINKS = [
-  { name: "Dépannage Urgent", path: "/#services" },
+  { name: "Dépannage PC", path: "/#services" },
+  { name: "Dépannage Mac", path: "/#services" },
   { name: "Suppression Virus", path: "/#services" },
   { name: "Récupération Données", path: "/#services" },
-  { name: "Installation Réseau", path: "/#services" },
-  { name: "Formation", path: "/#services" }
+  { name: "Installation Réseau", path: "/#services" }
 ];
 
 const LOCATIONS_LINKS = [
@@ -29,51 +29,59 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-deep-navy text-white">
+    <footer className="bg-brand-navy text-white">
       {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Company Info */}
           <div>
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 bg-tech-blue rounded flex items-center justify-center">
-                <span className="text-white font-outfit font-bold text-lg">A</span>
-              </div>
-              <span className="font-outfit font-bold text-xl">{COMPANY.name}</span>
-            </div>
-            <p className="font-ibm text-gray-400 text-sm leading-relaxed mb-6">
-              Depuis 2002, votre partenaire informatique de confiance à Paris et région parisienne. 
-              Intervention rapide 7j/7 pour particuliers et professionnels.
+            <img 
+              src="https://allopcdepannage.fr/img/AlloPC_04.gif" 
+              alt="Allo PC Dépannage" 
+              className="h-12 w-auto mb-4 brightness-0 invert"
+            />
+            <p className="font-body text-gray-400 text-sm leading-relaxed mb-4">
+              Depuis 2002, votre partenaire informatique de confiance à Paris. 
+              Dépannage PC et Mac 7j/7.
             </p>
-            <div className="space-y-3">
-              <a href={COMPANY.phoneLink} className="flex items-center space-x-3 text-gray-300 hover:text-alert-orange transition-colors" data-testid="footer-phone">
-                <Phone className="w-4 h-4" />
-                <span className="font-ibm text-sm">{COMPANY.phone}</span>
-              </a>
-              <a href={`mailto:${COMPANY.email}`} className="flex items-center space-x-3 text-gray-300 hover:text-tech-blue transition-colors" data-testid="footer-email">
-                <Mail className="w-4 h-4" />
-                <span className="font-ibm text-sm">{COMPANY.email}</span>
-              </a>
-              <div className="flex items-start space-x-3 text-gray-300">
-                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                <span className="font-ibm text-sm">{COMPANY.address}</span>
+            
+            {/* PC & Mac */}
+            <div className="flex items-center space-x-4 mb-4">
+              <div className="flex items-center space-x-1 text-gray-400">
+                <Monitor className="w-4 h-4" />
+                <span className="text-xs">PC</span>
               </div>
-              <div className="flex items-center space-x-3 text-gray-300">
-                <Clock className="w-4 h-4" />
-                <span className="font-ibm text-sm">7j/7 - Intervention rapide</span>
+              <div className="flex items-center space-x-1 text-gray-400">
+                <Apple className="w-4 h-4" />
+                <span className="text-xs">Mac</span>
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <a href={COMPANY.phoneLink} className="flex items-center space-x-2 text-gray-300 hover:text-brand-blue-light transition-colors" data-testid="footer-phone">
+                <Phone className="w-4 h-4" />
+                <span className="font-body text-sm">{COMPANY.phone}</span>
+              </a>
+              <a href={`mailto:${COMPANY.email}`} className="flex items-center space-x-2 text-gray-300 hover:text-brand-blue-light transition-colors" data-testid="footer-email">
+                <Mail className="w-4 h-4" />
+                <span className="font-body text-sm">{COMPANY.email}</span>
+              </a>
+              <div className="flex items-start space-x-2 text-gray-300">
+                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                <span className="font-body text-sm">{COMPANY.address}</span>
               </div>
             </div>
           </div>
 
           {/* Services */}
           <div>
-            <h3 className="font-outfit font-bold text-lg mb-6 uppercase tracking-wide">Nos Services</h3>
-            <ul className="space-y-3">
+            <h3 className="font-heading font-bold text-lg mb-4">Nos Services</h3>
+            <ul className="space-y-2">
               {SERVICES_LINKS.map((service) => (
                 <li key={service.name}>
                   <Link 
                     to={service.path} 
-                    className="font-ibm text-sm text-gray-400 hover:text-white transition-colors"
+                    className="font-body text-sm text-gray-400 hover:text-white transition-colors"
                   >
                     {service.name}
                   </Link>
@@ -82,15 +90,15 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Zones d'intervention */}
+          {/* Zones */}
           <div>
-            <h3 className="font-outfit font-bold text-lg mb-6 uppercase tracking-wide">Zones d'intervention</h3>
-            <ul className="space-y-3">
+            <h3 className="font-heading font-bold text-lg mb-4">Zones d'intervention</h3>
+            <ul className="space-y-2">
               {LOCATIONS_LINKS.map((location) => (
                 <li key={location.name}>
                   <Link 
                     to={location.path} 
-                    className="font-ibm text-sm text-gray-400 hover:text-white transition-colors"
+                    className="font-body text-sm text-gray-400 hover:text-white transition-colors"
                     data-testid={`footer-loc-${location.name.toLowerCase().replace(/\s+/g, '-')}`}
                   >
                     {location.name}
@@ -100,23 +108,23 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact rapide */}
+          {/* Contact */}
           <div>
-            <h3 className="font-outfit font-bold text-lg mb-6 uppercase tracking-wide">Besoin d'aide ?</h3>
-            <p className="font-ibm text-gray-400 text-sm mb-6 leading-relaxed">
+            <h3 className="font-heading font-bold text-lg mb-4">Besoin d'aide ?</h3>
+            <p className="font-body text-gray-400 text-sm mb-4 leading-relaxed">
               Un technicien peut intervenir chez vous en moins de 30 minutes.
             </p>
             <a
               href={COMPANY.phoneLink}
-              className="inline-flex items-center space-x-2 bg-alert-orange text-white px-6 py-3 rounded font-outfit font-semibold btn-primary"
+              className="inline-flex items-center space-x-2 bg-brand-blue hover:bg-brand-blue-light text-white px-5 py-3 rounded-lg font-heading font-semibold text-sm transition-all"
               data-testid="footer-cta"
             >
-              <Phone className="w-5 h-5" />
+              <Phone className="w-4 h-4" />
               <span>Appelez maintenant</span>
             </a>
-            <div className="mt-8 p-4 bg-white/5 rounded border border-white/10">
-              <p className="font-outfit font-semibold text-sm text-alert-orange mb-1">+ de 20 ans d'expérience</p>
-              <p className="font-ibm text-xs text-gray-400">Des milliers de clients satisfaits depuis 2002</p>
+            <div className="mt-6 p-3 bg-white/5 rounded-lg border border-white/10">
+              <p className="font-heading font-semibold text-sm text-brand-blue-light mb-1">+ de 20 ans d'expérience</p>
+              <p className="font-body text-xs text-gray-400">Des milliers de clients satisfaits depuis 2002</p>
             </div>
           </div>
         </div>
@@ -124,16 +132,16 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="font-ibm text-sm text-gray-500">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
+            <p className="font-body text-xs text-gray-500">
               © {currentYear} {COMPANY.name}. Tous droits réservés.
             </p>
-            <div className="flex space-x-6">
-              <Link to="/mentions-legales" className="font-ibm text-sm text-gray-500 hover:text-white transition-colors">
+            <div className="flex space-x-4">
+              <Link to="/mentions-legales" className="font-body text-xs text-gray-500 hover:text-white transition-colors">
                 Mentions légales
               </Link>
-              <Link to="/politique-confidentialite" className="font-ibm text-sm text-gray-500 hover:text-white transition-colors">
+              <Link to="/politique-confidentialite" className="font-body text-xs text-gray-500 hover:text-white transition-colors">
                 Politique de confidentialité
               </Link>
             </div>
