@@ -67,18 +67,19 @@ const SERVICES = [
 ];
 
 export default function LocationPage() {
-  const { slug } = useParams();
+  const browserLocation = useLocation();
   
-  // Map URL slugs to data keys
+  // Extract slug from pathname
+  const pathname = browserLocation.pathname;
   const slugMap = {
-    'paris-16': 'paris-16',
-    'paris-17': 'paris-17',
-    'paris-8': 'paris-8',
-    'neuilly-sur-seine': 'neuilly-sur-seine',
-    'levallois-perret': 'levallois-perret'
+    '/depannage-pc-paris-16': 'paris-16',
+    '/depannage-pc-paris-17': 'paris-17',
+    '/depannage-pc-paris-8': 'paris-8',
+    '/depannage-pc-neuilly-sur-seine': 'neuilly-sur-seine',
+    '/depannage-informatique-levallois-perret': 'levallois-perret'
   };
   
-  const dataKey = slugMap[slug];
+  const dataKey = slugMap[pathname];
   const location = LOCATIONS_DATA[dataKey];
 
   useEffect(() => {
