@@ -1,0 +1,99 @@
+{
+  "identity": {
+    "name": "E1: The Anti-AI Designer",
+    "mission": "Create a clinical, high-trust, technical repair service site that feels like an 'Emergency Room for Tech'. No generic corporate blues.",
+    "tone": "Authoritative, Urgent, Precise, Expert"
+  },
+  "typography": {
+    "primary_font": "Outfit",
+    "secondary_font": "IBM Plex Sans",
+    "font_import_url": "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Outfit:wght@400;600;800&display=swap",
+    "usage": {
+      "headings": "font-['Outfit'] font-extrabold tracking-tight uppercase",
+      "body": "font-['IBM_Plex_Sans'] font-normal tracking-normal",
+      "ui_elements": "font-['Outfit'] font-semibold tracking-wide"
+    }
+  },
+  "colors": {
+    "palette_name": "The Clinical Swiss",
+    "primary": "#0047FF",
+    "primary_foreground": "#FFFFFF",
+    "secondary": "#FF4F00",
+    "secondary_foreground": "#FFFFFF",
+    "accent": "#F0F2F5",
+    "accent_foreground": "#0F172A",
+    "background": "#FFFFFF",
+    "foreground": "#0F172A",
+    "muted": "#F1F5F9",
+    "muted_foreground": "#64748B",
+    "card": "#FFFFFF",
+    "card_foreground": "#0F172A",
+    "border": "#E2E8F0",
+    "tailwind_config_extension": {
+      "colors": {
+        "tech-blue": "#0047FF",
+        "alert-orange": "#FF4F00",
+        "deep-navy": "#0B1120",
+        "clinical-white": "#FAFAFA"
+      }
+    }
+  },
+  "layout_strategy": {
+    "container_width": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "spacing": {
+      "section_padding": "py-20 md:py-32",
+      "element_gap": "gap-8 md:gap-12"
+    },
+    "grid_system": "Bento Grid - Mixed spans. Never equal columns for main content.",
+    "border_radius": "rounded-none md:rounded-sm"
+  },
+  "components": {
+    "hero": {
+      "style": "Split Asymmetrical",
+      "content": "Left: Massive Typography 'URGENCE PC?'. Right: High-res technical imagery (Motherboard/Repair).",
+      "cta": "Floating Action Button style or Massive 'CALL NOW' bar at bottom of mobile viewport.",
+      "visual_enhancer": "Animated 'Pulse' on the phone number to signify active status."
+    },
+    "navbar": {
+      "style": "Sticky Clinical",
+      "background": "bg-white/90 backdrop-blur-md border-b border-gray-100",
+      "action": "Primary Button: '01 23 45 67 89' (Phone Icon highlighted)."
+    },
+    "service_grid": {
+      "style": "Bento Grid High Density",
+      "items": [
+        {"title": "Dépannage Urgent", "span": "col-span-2 row-span-2", "color": "bg-alert-orange text-white"},
+        {"title": "Virus & Sécurité", "span": "col-span-1 row-span-1", "color": "bg-gray-100"},
+        {"title": "Récupération Données", "span": "col-span-1 row-span-1", "color": "bg-tech-blue text-white"},
+        {"title": "Installation Réseau", "span": "col-span-2 row-span-1", "color": "bg-deep-navy text-white"}
+      ]
+    },
+    "local_seo_pages": {
+      "style": "Map-Centric",
+      "content": "Dynamic header changing based on location (Paris 16 vs 17). Use Paris Skyline image with overlay."
+    }
+  },
+  "image_urls": {
+    "hero_technician": "https://images.unsplash.com/photo-1768633647910-7e6fb53e5b0f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHwxfHxjb21wdXRlciUyMHJlcGFpciUyMHRlY2huaWNpYW4lMjBzb2xkZXJpbmclMjBoYXJkd2FyZXxlbnwwfHx8fDE3NzEwMTUxNjV8MA&ixlib=rb-4.1.0&q=85",
+    "circuit_detail": "https://images.unsplash.com/photo-1672689933227-2ce1249c46a9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHw0fHxjb21wdXRlciUyMHJlcGFpciUyMHRlY2huaWNpYW4lMjBzb2xkZXJpbmclMjBoYXJkd2FyZXxlbnwwfHx8fDE3NzEwMTUxNjV8MA&ixlib=rb-4.1.0&q=85",
+    "paris_skyline": "https://images.unsplash.com/photo-1568459455764-3910d95a262a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwyfHxwYXJpcyUyMHNreWxpbmUlMjBlaWZmZWwlMjB0b3dlciUyMGFyY2hpdGVjdHVyZXxlbnwwfHx8fDE3NzEwMTUxNjd8MA&ixlib=rb-4.1.0&q=85",
+    "office_clean": "https://images.unsplash.com/photo-1612093991429-acd0fc7b1804?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBjbGVhbiUyMG9mZmljZSUyMGxhcHRvcCUyMHJlcGFpciUyMHBhcmlzfGVufDB8fHx8MTc3MTAxNTE2Nnww&ixlib=rb-4.1.0&q=85",
+    "map_placeholder": "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80"
+  },
+  "instructions_to_main_agent": [
+    "INSTALL: npm install lucide-react framer-motion clsx tailwind-merge",
+    "SETUP: Update tailwind.config.js with the 'colors' defined above. Add the fonts to index.css via @import.",
+    "COMPONENT: Create a 'BentoGrid' component for the services section.",
+    "COMPONENT: Create a 'LocationBadge' component for SEO pages that clearly states the intervention zone.",
+    "CRITICAL: Do not use gradients on text. Keep it high contrast. Black text on White bg, or White text on Blue bg.",
+    "CRITICAL: Ensure 'Call Now' button is sticky on mobile bottom (Z-index 50).",
+    "SEO: Ensure each local page (Paris 16, 17, etc.) has unique H1 and Meta Description using the location name."
+  ],
+  "universal_guidelines": [
+    "No 'Inter' font for headings.",
+    "No generic centered hero sections.",
+    "Use 2x padding than normal.",
+    "Micro-interactions on every button (scale, brightness).",
+    "Data-testid attributes on all interactive elements."
+  ]
+}
