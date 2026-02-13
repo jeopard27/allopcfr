@@ -9,7 +9,7 @@ const ADVANTAGES = [
   {
     icon: Award,
     title: "+20 ans d'expérience",
-    description: "Depuis 2002, nous dépannons des milliers de clients avec expertise et professionnalisme."
+    description: "Depuis 2002, nous dépannons des milliers de clients PC et Mac avec expertise."
   },
   {
     icon: Users,
@@ -35,38 +35,38 @@ const ADVANTAGES = [
 
 export default function Advantages() {
   return (
-    <section className="py-20 md:py-32 bg-clinical-white" data-testid="advantages-section">
+    <section className="py-16 md:py-24 bg-brand-sky" data-testid="advantages-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block font-outfit font-semibold text-alert-orange text-sm uppercase tracking-widest mb-4">
+        <div className="text-center mb-12">
+          <span className="inline-block font-heading font-semibold text-brand-blue text-sm uppercase tracking-widest mb-4">
             Pourquoi nous choisir
           </span>
-          <h2 className="font-outfit font-extrabold text-4xl md:text-5xl text-deep-navy tracking-tight mb-6">
-            VOS AVANTAGES
+          <h2 className="font-heading font-bold text-3xl md:text-4xl text-brand-navy mb-4">
+            Vos Avantages
           </h2>
-          <p className="font-ibm text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="font-body text-lg text-gray-600 max-w-2xl mx-auto">
             Une équipe de professionnels dédiée à vous simplifier l'informatique
           </p>
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {ADVANTAGES.map((advantage, index) => {
             const Icon = advantage.icon;
             return (
               <div
                 key={index}
-                className="bg-white p-8 rounded border border-gray-100 shadow-sm hover:shadow-lg transition-shadow"
+                className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
                 data-testid={`advantage-${index}`}
               >
-                <div className="w-14 h-14 bg-tech-blue/10 rounded flex items-center justify-center mb-6">
-                  <Icon className="w-7 h-7 text-tech-blue" />
+                <div className="w-12 h-12 bg-brand-blue/10 rounded-lg flex items-center justify-center mb-4">
+                  <Icon className="w-6 h-6 text-brand-blue" />
                 </div>
-                <h3 className="font-outfit font-bold text-xl text-deep-navy mb-3">
+                <h3 className="font-heading font-bold text-lg text-brand-navy mb-2">
                   {advantage.title}
                 </h3>
-                <p className="font-ibm text-gray-600 leading-relaxed">
+                <p className="font-body text-gray-600 text-sm leading-relaxed">
                   {advantage.description}
                 </p>
               </div>
