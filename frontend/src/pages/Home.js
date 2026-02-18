@@ -1,5 +1,6 @@
 import Hero from '../components/sections/Hero';
 import Services from '../components/sections/Services';
+import TeleAssistance from '../components/sections/TeleAssistance';
 import Advantages from '../components/sections/Advantages';
 import Zones from '../components/sections/Zones';
 import Testimonials from '../components/sections/Testimonials';
@@ -11,6 +12,7 @@ export default function Home() {
     <main data-testid="home-page">
       <Hero />
       <Services />
+      <TeleAssistance />
       <Advantages />
       <Zones />
       <Testimonials />
