@@ -101,7 +101,7 @@ export default function Hero({ location = null }) {
         <img 
           src="/banner-hero.png" 
           alt="Allo PC Dépannage - Service de dépannage informatique PC et Mac"
-          className="w-full h-full object-cover object-top"
+          className="w-full h-full object-contain"
           data-testid="hero-banner-image"
         />
         {/* Dark overlay for text readability */}
