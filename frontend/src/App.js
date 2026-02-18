@@ -28,15 +28,19 @@ function SEOHead() {
   const location = useLocation();
   
   useEffect(() => {
-    // Default SEO
+    const setMeta = (name, content, prop = 'name') => {
+      let el = document.querySelector(`meta[${prop}="${name}"]`);
+      if (!el) { el = document.createElement('meta'); el[prop === 'name' ? 'name' : 'setAttribute'](prop === 'name' ? 'name' : prop, name); document.head.appendChild(el); }
+      if (prop !== 'name') el.setAttribute(prop, name);
+      el.content = content;
+    };
+
     if (location.pathname === '/') {
-      document.title = "Allo PC Dépannage | Dépannage Informatique Paris - Depuis 2002";
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) {
-        metaDesc.content = "Dépannage informatique à domicile à Paris et région parisienne depuis 2002. Intervention rapide 7j/7. Réparation PC, suppression virus, récupération données. Appelez le 01 40 88 30 30";
-      }
+      document.title = "Allo PC Dépannage | Dépannage Informatique PC & Mac Paris - Depuis 2002";
+      setMeta('description', "Dépannage informatique à domicile à Paris et région parisienne. Intervention rapide 7j/7 en moins de 30 min. Réparation PC et Mac, suppression virus, récupération données. Appelez le 01 40 88 30 30");
     } else if (location.pathname === '/contact') {
-      document.title = "Contact | Allo PC Dépannage - Devis Gratuit";
+      document.title = "Contact | Allo PC Dépannage - Dépannage Informatique Paris";
+      setMeta('description', "Contactez Allo PC Dépannage pour un dépannage informatique PC ou Mac à Paris. Téléphone, email, WhatsApp. Intervention rapide 7j/7. 01 40 88 30 30");
     }
   }, [location]);
   
