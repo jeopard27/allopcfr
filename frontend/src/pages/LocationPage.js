@@ -96,101 +96,101 @@ export default function LocationPage() {
 
   if (!location) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen bg-tech-dark flex items-center justify-center">
         <div className="text-center">
-          <h1 className="font-heading font-bold text-2xl text-brand-navy mb-4">Page non trouvée</h1>
-          <Link to="/" className="text-brand-blue hover:underline">Retour à l'accueil</Link>
+          <h1 className="font-heading font-bold text-2xl text-white mb-4">Page non trouvée</h1>
+          <Link to="/" className="text-tech-cyan hover:underline">Retour à l'accueil</Link>
         </div>
       </div>
     );
   }
 
   return (
-    <main data-testid={`location-page-${location.slug}`}>
+    <main className="bg-tech-dark" data-testid={`location-page-${location.slug}`}>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-brand-sky via-white to-blue-50 overflow-hidden py-12 md:py-20">
+      <section className="relative overflow-hidden py-16 md:py-24">
+        <div className="absolute inset-0 bg-tech-radial"></div>
+        <div className="absolute inset-0 circuit-bg opacity-30"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Breadcrumb */}
           <nav className="mb-6" aria-label="Breadcrumb">
             <ol className="flex items-center space-x-2 font-body text-sm text-gray-500">
-              <li><Link to="/" className="hover:text-brand-blue">Accueil</Link></li>
-              <li>/</li>
-              <li className="text-brand-navy font-medium">{location.name}</li>
+              <li><Link to="/" className="hover:text-tech-cyan transition-colors">Accueil</Link></li>
+              <li className="text-gray-600">/</li>
+              <li className="text-tech-cyan font-medium">{location.name}</li>
             </ol>
           </nav>
 
           {/* Location Badge */}
-          <div className="inline-flex items-center space-x-2 bg-brand-blue/10 text-brand-blue px-4 py-2 rounded-full mb-6">
-            <MapPin className="w-4 h-4" />
+          <div className="inline-flex items-center space-x-2 bg-tech-gold/20 text-tech-gold px-4 py-2 rounded-full mb-6 glow-border">
+            <span className="w-2 h-2 bg-tech-gold rounded-full animate-pulse"></span>
             <span className="font-body text-sm font-medium">Zone : {location.name} ({location.postal_code})</span>
           </div>
 
-          <h1 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-brand-navy leading-tight mb-6" data-testid="location-h1">
+          <h1 className="font-heading font-black text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-6" data-testid="location-h1">
             {location.h1}
           </h1>
 
-          <p className="font-body text-lg text-gray-600 mb-6 max-w-3xl leading-relaxed">
+          <p className="font-body text-lg text-gray-300 mb-6 max-w-3xl leading-relaxed">
             {location.description}
           </p>
 
           {/* PC & Mac badge */}
-          <div className="flex items-center space-x-4 mb-8 p-4 bg-white rounded-lg shadow-sm border border-gray-100 inline-flex">
+          <div className="flex items-center space-x-4 mb-8 p-4 tech-card rounded-xl inline-flex">
             <div className="flex items-center space-x-2">
-              <Monitor className="w-5 h-5 text-brand-blue" />
-              <span className="font-body font-semibold text-gray-700">PC Windows</span>
+              <Monitor className="w-5 h-5 text-tech-cyan" />
+              <span className="font-body font-semibold text-white">PC Windows</span>
             </div>
-            <span className="text-gray-300">|</span>
+            <span className="text-tech-gold text-xl">+</span>
             <div className="flex items-center space-x-2">
-              <Apple className="w-5 h-5 text-gray-700" />
-              <span className="font-body font-semibold text-gray-700">Mac Apple</span>
+              <Apple className="w-5 h-5 text-white" />
+              <span className="font-body font-semibold text-white">Mac Apple</span>
             </div>
           </div>
 
           {/* Trust badges */}
           <div className="flex flex-wrap gap-3 mb-8">
-            <div className="flex items-center space-x-2 bg-white px-4 py-2 rounded-lg shadow-sm border border-gray-100">
-              <Clock className="w-5 h-5 text-brand-blue" />
-              <span className="font-body text-sm text-gray-700">Intervention rapide</span>
+            <div className="flex items-center space-x-2 tech-card px-4 py-2 rounded-lg">
+              <Clock className="w-5 h-5 text-tech-gold" />
+              <span className="font-body text-sm text-white">Intervention rapide</span>
             </div>
-            <div className="flex items-center space-x-2 bg-white px-4 py-2 rounded-lg shadow-sm border border-gray-100">
-              <CheckCircle className="w-5 h-5 text-green-500" />
-              <span className="font-body text-sm text-gray-700">7j/7</span>
+            <div className="flex items-center space-x-2 tech-card px-4 py-2 rounded-lg">
+              <CheckCircle className="w-5 h-5 text-green-400" />
+              <span className="font-body text-sm text-white">7j/7</span>
             </div>
             {location.featured && (
-              <div className="flex items-center space-x-2 bg-brand-blue text-white px-4 py-2 rounded-lg shadow-sm">
+              <div className="flex items-center space-x-2 bg-tech-gold/20 text-tech-gold px-4 py-2 rounded-lg glow-border">
                 <MapPin className="w-5 h-5" />
-                <span className="font-body text-sm">Notre siège social</span>
+                <span className="font-body text-sm font-semibold">Notre siège social</span>
               </div>
             )}
           </div>
 
           {/* CTA */}
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a
-              href="tel:0140883030"
-              className="inline-flex items-center justify-center space-x-3 bg-brand-blue hover:bg-brand-blue-dark text-white px-8 py-4 rounded-lg font-heading font-semibold text-lg transition-all shadow-lg"
-              data-testid="location-call-button"
-            >
-              <Phone className="w-5 h-5" />
-              <span>01 40 88 30 30</span>
-            </a>
-          </div>
+          <a
+            href="tel:0140883030"
+            className="inline-flex items-center justify-center space-x-3 bg-gradient-to-r from-tech-gold to-tech-orange text-tech-dark px-8 py-4 rounded-full font-heading font-bold text-lg transition-all duration-300 shadow-lg shadow-tech-gold/40 hover:shadow-tech-gold/60 hover:scale-105"
+            data-testid="location-call-button"
+          >
+            <Phone className="w-5 h-5" />
+            <span>01 40 88 30 30</span>
+          </a>
         </div>
       </section>
 
       {/* Neighborhoods */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-tech-dark border-t border-tech-cyan/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading font-bold text-2xl text-brand-navy mb-6">
+          <h2 className="font-heading font-bold text-2xl text-white mb-6">
             Quartiers desservis à {location.name}
           </h2>
           <div className="flex flex-wrap gap-3">
             {location.neighborhoods.map((neighborhood, index) => (
               <span
                 key={index}
-                className="inline-flex items-center px-4 py-2 bg-brand-sky rounded-lg font-body text-gray-700"
+                className="inline-flex items-center px-4 py-2 tech-card rounded-lg font-body text-gray-300"
               >
-                <MapPin className="w-4 h-4 mr-2 text-brand-blue" />
+                <MapPin className="w-4 h-4 mr-2 text-tech-gold" />
                 {neighborhood}
               </span>
             ))}
@@ -199,21 +199,22 @@ export default function LocationPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-12 bg-brand-sky">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading font-bold text-2xl text-brand-navy mb-6">
+      <section className="py-12 bg-tech-dark">
+        <div className="absolute inset-0 bg-gradient-to-b from-tech-blue/10 to-tech-dark"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <h2 className="font-heading font-bold text-2xl text-white mb-6">
             Nos services PC et Mac à {location.name}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {SERVICES.map((service, index) => {
               const Icon = service.icon;
               return (
-                <div key={index} className="bg-white p-5 rounded-xl border border-gray-200 hover:shadow-lg transition-shadow">
-                  <div className="w-10 h-10 bg-brand-blue/10 rounded-lg flex items-center justify-center mb-3">
-                    <Icon className="w-5 h-5 text-brand-blue" />
+                <div key={index} className="tech-card p-5 rounded-xl">
+                  <div className="w-10 h-10 bg-tech-cyan/10 rounded-lg flex items-center justify-center mb-3 border border-tech-cyan/30">
+                    <Icon className="w-5 h-5 text-tech-cyan" />
                   </div>
-                  <h3 className="font-heading font-bold text-lg text-brand-navy mb-1">{service.name}</h3>
-                  <p className="font-body text-sm text-gray-600">{service.desc}</p>
+                  <h3 className="font-heading font-bold text-lg text-white mb-1">{service.name}</h3>
+                  <p className="font-body text-sm text-gray-400">{service.desc}</p>
                 </div>
               );
             })}
@@ -222,29 +223,29 @@ export default function LocationPage() {
       </section>
 
       {/* SEO Content */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-tech-dark border-t border-tech-cyan/10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <article>
-            <h2 className="font-heading font-bold text-2xl text-brand-navy mb-6">
+            <h2 className="font-heading font-bold text-2xl text-white mb-6">
               Votre expert en dépannage PC et Mac à {location.name}
             </h2>
-            <div className="font-body text-gray-600 space-y-4 leading-relaxed">
+            <div className="font-body text-gray-400 space-y-4 leading-relaxed">
               <p>
-                <strong>Allo PC Dépannage</strong> intervient à {location.name} ({location.postal_code}) depuis 2002. 
+                <strong className="text-white">Allo PC Dépannage</strong> intervient à {location.name} ({location.postal_code}) depuis 2002. 
                 Notre équipe de techniciens qualifiés se déplace à votre domicile ou sur votre lieu de travail 
-                pour résoudre tous vos problèmes informatiques sur <strong>PC Windows et Mac Apple</strong>.
+                pour résoudre tous vos problèmes informatiques sur <strong className="text-tech-cyan">PC Windows et Mac Apple</strong>.
               </p>
               <p>
-                Que vous ayez un <strong>ordinateur qui ne démarre plus</strong>, une 
-                <strong> infection virale</strong>, une <strong>perte de données</strong> ou besoin 
-                d'installer un <strong>réseau WiFi</strong>, nous avons la solution pour votre PC comme pour votre Mac.
+                Que vous ayez un <strong className="text-white">ordinateur qui ne démarre plus</strong>, une 
+                <strong className="text-white"> infection virale</strong>, une <strong className="text-white">perte de données</strong> ou besoin 
+                d'installer un <strong className="text-white">réseau WiFi</strong>, nous avons la solution pour votre PC comme pour votre Mac.
               </p>
               <p>
-                Nous intervenons sur tous les modèles : <strong>iMac, MacBook, MacBook Pro, MacBook Air, Mac Mini</strong>, 
-                ainsi que tous les <strong>PC fixes et portables</strong> de toutes marques.
+                Nous intervenons sur tous les modèles : <strong className="text-white">iMac, MacBook, MacBook Pro, MacBook Air, Mac Mini</strong>, 
+                ainsi que tous les <strong className="text-white">PC fixes et portables</strong> de toutes marques.
               </p>
               <p>
-                Nos forfaits incluent une <strong>obligation de résultat</strong> : vous ne payez que si 
+                Nos forfaits incluent une <strong className="text-tech-gold">obligation de résultat</strong> : vous ne payez que si 
                 le problème est résolu. C'est notre engagement qualité depuis plus de 20 ans.
               </p>
             </div>
