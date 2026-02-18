@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Allo PC Dépannage | Dépannage Informatique PC & Mac Paris - Depuis 2002</title>
+  <meta name="description" content="Dépannage informatique à domicile à Paris et région parisienne depuis 2002. Intervention rapide 7j/7. Réparation PC et Mac, suppression virus, récupération données. Appelez le 01 40 88 30 30">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --tech-dark: #0a1628;
+      --tech-blue: #1a3a5c;
+      --tech-cyan: #00d4ff;
+      --tech-gold: #f5a623;
+      --tech-orange: #e8951d;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Open Sans', sans-serif; background: var(--tech-dark); color: #fff; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    ::selection { background: var(--tech-cyan); color: var(--tech-dark); }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--tech-dark); }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, var(--tech-cyan), var(--tech-gold)); border-radius: 4px; }
+
+    /* Layout */
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 1rem; }
+    .grid { display: grid; gap: 1.5rem; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .grid-3 { grid-template-columns: 1fr; }
+    .grid-4 { grid-template-columns: 1fr 1fr; }
+    .grid-5 { grid-template-columns: 1fr; }
+    .flex { display: flex; }
+    .flex-col { flex-direction: column; }
+    .items-center { align-items: center; }
+    .justify-center { justify-content: center; }
+    .justify-between { justify-content: space-between; }
+    .flex-wrap { flex-wrap: wrap; }
+    .gap-2 { gap: 0.5rem; }
+    .gap-3 { gap: 0.75rem; }
+    .gap-4 { gap: 1rem; }
+    .gap-6 { gap: 1.5rem; }
+    .text-center { text-align: center; }
+    .hidden { display: none; }
+
+    @media (min-width: 768px) {
+      .container { padding: 0 1.5rem; }
+      .grid-2 { grid-template-columns: 1fr 1fr; }
+      .grid-3 { grid-template-columns: repeat(3, 1fr); }
+      .grid-4 { grid-template-columns: repeat(4, 1fr); }
+      .grid-5 { grid-template-columns: repeat(5, 1fr); }
+      .md-flex { display: flex; }
+      .md-hidden { display: none; }
+      .mobile-call-bar { display: none !important; }
+    }
+    @media (max-width: 767px) {
+      .desktop-nav { display: none; }
+      .desktop-phone { display: none; }
+    }
+
+    /* Patterns */
+    .circuit-bg {
+      background-image: linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px), linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+    .tech-card {
+      background: linear-gradient(135deg, rgba(26,58,92,0.8), rgba(10,22,40,0.9));
+      border: 1px solid rgba(0,212,255,0.2);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+    .tech-card:hover {
+      border-color: var(--tech-cyan);
+      box-shadow: 0 0 20px rgba(0,212,255,0.2), 0 10px 40px rgba(0,0,0,0.3);
+      transform: translateY(-5px);
+    }
+    .glow-border {
+      border: 2px solid var(--tech-gold);
+      box-shadow: 0 0 10px rgba(245,166,35,0.3), 0 0 20px rgba(245,166,35,0.2), inset 0 0 10px rgba(245,166,35,0.1);
+    }
+    .glow-border-cyan {
+      border: 2px solid var(--tech-cyan);
+      box-shadow: 0 0 10px rgba(0,212,255,0.3), 0 0 20px rgba(0,212,255,0.2);
+    }
+    .text-glow { text-shadow: 0 0 10px var(--tech-cyan), 0 0 20px var(--tech-cyan); }
+    .text-glow-gold { text-shadow: 0 0 10px var(--tech-gold), 0 0 20px var(--tech-gold); }
+
+    /* Colors */
+    .text-white { color: #fff; }
+    .text-cyan { color: var(--tech-cyan); }
+    .text-gold { color: var(--tech-gold); }
+    .text-gray-300 { color: #d1d5db; }
+    .text-gray-400 { color: #9ca3af; }
+    .text-gray-500 { color: #6b7280; }
+    .text-gray-600 { color: #4b5563; }
+    .text-green { color: #4ade80; }
+    .text-red { color: #f87171; }
+
+    /* Buttons */
+    .btn-gold {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem;
+      background: linear-gradient(135deg, var(--tech-gold), var(--tech-orange));
+      color: var(--tech-dark); font-family: 'Montserrat', sans-serif; font-weight: 700;
+      padding: 14px 36px; border-radius: 50px; border: none;
+      box-shadow: 0 4px 15px rgba(245,166,35,0.4); transition: all 0.3s ease; cursor: pointer;
+    }
+    .btn-gold:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 6px 25px rgba(245,166,35,0.6); }
+    .btn-outline-cyan {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: transparent; color: var(--tech-cyan); border: 2px solid var(--tech-cyan);
+      padding: 14px 36px; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-weight: 700;
+      transition: all 0.3s ease; cursor: pointer;
+    }
+    .btn-outline-cyan:hover { background: var(--tech-cyan); color: var(--tech-dark); box-shadow: 0 0 20px rgba(0,212,255,0.4); }
+
+    /* Badge */
+    .badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.8rem;
+      font-family: 'Montserrat', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;
+    }
+    .badge-cyan { background: rgba(0,212,255,0.15); color: var(--tech-cyan); }
+    .badge-gold { background: rgba(245,166,35,0.15); color: var(--tech-gold); }
+
+    /* Section */
+    .section { padding: 5rem 0; position: relative; }
+    .section-header { text-align: center; margin-bottom: 4rem; }
+    .section-header h2 { font-weight: 900; font-size: 2.2rem; color: #fff; margin-bottom: 1rem; }
+    .section-header p { font-size: 1.1rem; color: #9ca3af; max-width: 640px; margin: 0 auto; }
+
+    /* Animations */
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+    @keyframes glow-pulse { 0%, 100% { opacity: 0.4; transform: scale(1); } 50% { opacity: 1; transform: scale(1.1); } }
+    @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+    @keyframes progress { 0% { width: 0; } 100% { width: 100%; } }
+    .animate-float { animation: float 4s ease-in-out infinite; }
+    .animate-float-delay { animation: float 4s ease-in-out infinite; animation-delay: 2s; }
+
+    /* === HEADER === */
+    .header { position: sticky; top: 0; z-index: 40; }
+    .logo-bar { background: var(--tech-dark); border-bottom: 1px solid rgba(245,166,35,0.2); padding: 0.75rem 0; text-align: center; }
+    .logo-text { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.6rem; display: inline-flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--tech-gold), var(--tech-orange)); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(245,166,35,0.3); }
+    .nav-bar { background: linear-gradient(90deg, var(--tech-dark), rgba(26,58,92,0.4), var(--tech-dark)); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,212,255,0.15); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 48px; }
+    .nav-links { display: flex; align-items: center; justify-content: center; flex: 1; gap: 0.25rem; }
+    .nav-link { position: relative; padding: 0.5rem 1.25rem; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: #9ca3af; transition: color 0.3s; border-radius: 6px; }
+    .nav-link:hover, .nav-link.active { color: var(--tech-cyan); }
+    .nav-link::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 0; height: 2px; background: var(--tech-gold); transition: width 0.3s; }
+    .nav-link:hover::after, .nav-link.active::after { width: 75%; }
+    .nav-sep { width: 1px; height: 20px; background: rgba(0,212,255,0.2); margin: 0 0.25rem; }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-btn { display: flex; align-items: center; gap: 0.4rem; padding: 0.5rem 1.25rem; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: #9ca3af; background: none; border: none; cursor: pointer; transition: color 0.3s; }
+    .nav-dropdown-btn:hover { color: #fff; }
+    .nav-dropdown-menu { position: absolute; top: 100%; left: 0; margin-top: 0.25rem; width: 230px; background: rgba(10,22,40,0.98); backdrop-filter: blur(20px); border: 1px solid rgba(0,212,255,0.2); border-radius: 0.75rem; padding: 0.25rem 0; opacity: 0; visibility: hidden; transform: scale(0.95); transition: all 0.2s; box-shadow: 0 25px 50px rgba(0,0,0,0.5); }
+    .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; transform: scale(1); }
+    .nav-dropdown-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.65rem 1rem; font-size: 0.9rem; color: #9ca3af; transition: all 0.15s; }
+    .nav-dropdown-item:hover { background: rgba(0,212,255,0.1); color: #fff; }
+    .nav-phone { display: flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, var(--tech-gold), var(--tech-orange)); color: var(--tech-dark); padding: 0.5rem 1.25rem; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.875rem; transition: all 0.3s; box-shadow: 0 4px 12px rgba(245,166,35,0.3); }
+    .nav-phone:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(245,166,35,0.5); }
+
+    /* Mobile menu */
+    .mobile-menu-btn { background: none; border: none; cursor: pointer; padding: 0.5rem; }
+    .mobile-menu-btn svg { width: 24px; height: 24px; color: var(--tech-cyan); }
+    .mobile-menu { display: none; background: rgba(10,22,40,0.98); border-top: 1px solid rgba(0,212,255,0.15); padding: 1rem; }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; padding: 0.75rem 1rem; color: #9ca3af; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.9rem; border-radius: 8px; transition: all 0.2s; }
+    .mobile-menu a:hover { background: rgba(0,212,255,0.05); color: #fff; }
+    .mobile-locs-title { font-size: 0.7rem; color: var(--tech-gold); text-transform: uppercase; letter-spacing: 0.1em; padding: 0.5rem 1rem; margin-top: 0.5rem; border-top: 1px solid rgba(0,212,255,0.1); }
+
+    /* === HERO === */
+    .hero-banner { width: 100%; }
+    .hero-banner img { width: 100%; height: auto; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10,22,40,0.3), transparent, var(--tech-dark)); }
+    .hero-overlay-left { position: absolute; top: 0; bottom: 0; left: 0; width: 8rem; background: linear-gradient(to right, rgba(10,22,40,0.6), transparent); }
+    .hero-overlay-right { position: absolute; top: 0; bottom: 0; right: 0; width: 8rem; background: linear-gradient(to left, rgba(10,22,40,0.6), transparent); }
+    .hero-content { position: relative; z-index: 10; margin-top: -7rem; padding-bottom: 4rem; }
+    @media (min-width: 768px) { .hero-content { margin-top: -9rem; } }
+    .hero-card { background: rgba(10,22,40,0.8); backdrop-filter: blur(16px); border-radius: 1rem; padding: 2rem; border: 1px solid rgba(0,212,255,0.1); max-width: 700px; }
+    .hero-card h1 { font-weight: 900; font-size: 2rem; line-height: 1.2; margin-bottom: 1rem; }
+    @media (min-width: 768px) { .hero-card h1 { font-size: 2.8rem; } }
+    .hero-card p { color: #d1d5db; font-size: 1.1rem; margin-bottom: 1.5rem; line-height: 1.6; }
+    .trust-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .trust-badge { display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.75rem; border-radius: 8px; font-size: 0.8rem; color: #fff; }
+
+    /* === SERVICES === */
+    .service-card { padding: 1.5rem; border-radius: 0.75rem; }
+    .service-card.featured { background: linear-gradient(135deg, rgba(245,166,35,0.15), rgba(232,149,29,0.08)); }
+    .service-icon { width: 56px; height: 56px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+    .service-icon.featured { background: linear-gradient(135deg, var(--tech-gold), var(--tech-orange)); box-shadow: 0 4px 15px rgba(245,166,35,0.3); }
+    .service-icon.default { background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.3); }
+    .service-card h3 { font-weight: 700; font-size: 1.2rem; margin-bottom: 0.75rem; }
+    .service-card p { color: #9ca3af; line-height: 1.6; }
+
+    /* === TELEASSISTANCE === */
+    .tele-section { border-top: 3px solid; border-image: linear-gradient(to right, var(--tech-gold), var(--tech-cyan), var(--tech-gold)) 1; }
+    .tele-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; }
+    @media (min-width: 1024px) { .tele-grid { grid-template-columns: 1fr 1fr; } }
+    .step-item { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; }
+    .step-num { width: 24px; height: 24px; border-radius: 50%; background: rgba(0,212,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: var(--tech-cyan); flex-shrink: 0; }
+    .tele-visual { display: flex; align-items: center; justify-content: center; gap: 1.5rem; padding: 2rem; }
+    .tele-pc { width: 80px; height: 64px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+    .tele-connection { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+    .benefit-card { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; border-radius: 0.75rem; }
+    .benefit-icon { width: 48px; height: 48px; border-radius: 8px; background: rgba(245,166,35,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+    /* === ADVANTAGES === */
+    .advantage-card { padding: 1.5rem; border-radius: 0.75rem; }
+    .advantage-icon { width: 56px; height: 56px; border-radius: 12px; background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.3); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+
+    /* === ZONES === */
+    .zone-card { display: block; padding: 1.25rem; border-radius: 0.75rem; transition: all 0.3s; }
+    .zone-card.featured { background: linear-gradient(135deg, rgba(245,166,35,0.15), rgba(232,149,29,0.08)); }
+    .zone-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.75rem; }
+    .zone-code { font-size: 0.7rem; padding: 0.25rem 0.5rem; border-radius: 4px; }
+
+    /* === TESTIMONIALS === */
+    .testimonial-card { padding: 1.5rem; border-radius: 0.75rem; }
+    .stars { display: flex; gap: 0.25rem; }
+    .star { color: var(--tech-gold); font-size: 0.9rem; }
+    .testimonial-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 1rem; margin-top: 1rem; border-top: 1px solid rgba(0,212,255,0.2); }
+    .stat-card { padding: 1.5rem; border-radius: 0.75rem; text-align: center; }
+    .stat-num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 2.2rem; }
+
+    /* === CTA === */
+    .cta-section { border-top: 1px solid; border-bottom: 1px solid; border-image: linear-gradient(to right, transparent, var(--tech-gold), transparent) 1; }
+
+    /* === FOOTER === */
+    .footer { border-top: 1px solid rgba(0,212,255,0.2); padding: 4rem 0 0; }
+    .footer-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; }
+    @media (min-width: 768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+    .footer h3 { font-weight: 700; font-size: 1.1rem; margin-bottom: 1.5rem; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 0.75rem; }
+    .footer-links a { color: #9ca3af; font-size: 0.9rem; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--tech-cyan); }
+    .footer-bottom { border-top: 1px solid rgba(0,212,255,0.1); margin-top: 3rem; padding: 1.5rem 0; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
+    .footer-bottom p, .footer-bottom a { font-size: 0.75rem; color: #4b5563; }
+    .footer-bottom a:hover { color: var(--tech-cyan); }
+
+    /* SVG icons */
+    .icon { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .icon-sm { width: 16px; height: 16px; }
+    .icon-lg { width: 28px; height: 28px; }
+
+    /* Mobile call bar */
+    .mobile-call-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 50; background: linear-gradient(135deg, var(--tech-gold), var(--tech-orange)); text-align: center; }
+    .mobile-call-bar a { display: flex; align-items: center; justify-content: center; gap: 0.75rem; color: var(--tech-dark); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.1rem; padding: 1rem; }
+    @media (min-width: 768px) { .mobile-call-bar { display: none; } }
+  </style>
+</head>
+<body>
+
+<!-- ====== HEADER ====== -->
+<header class="header">
+  <div class="logo-bar">
+    <a href="#" class="logo-text">
+      <span class="logo-icon">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#0a1628" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </span>
+      <span><span style="color:#fff">ALLO</span><span style="color:var(--tech-cyan);margin-left:4px">PC</span><span style="color:var(--tech-cyan);margin-left:8px;font-weight:300;letter-spacing:0.05em">DÉPANNAGE</span></span>
+    </a>
+  </div>
+  <nav class="nav-bar">
+    <div class="container nav-inner">
+      <div class="nav-links desktop-nav">
+        <a href="#" class="nav-link active">Accueil</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#teleassistance" class="nav-link">Assistance informatique</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <div class="nav-sep"></div>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-btn">
+            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="var(--tech-gold)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Localités
+            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="#zones" class="nav-dropdown-item"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="var(--tech-gold)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Paris 16ème</a>
+            <a href="#zones" class="nav-dropdown-item"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="var(--tech-gold)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Paris 17ème</a>
+            <a href="#zones" class="nav-dropdown-item"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="var(--tech-gold)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Paris 8ème</a>
+            <a href="#zones" class="nav-dropdown-item"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="var(--tech-gold)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Neuilly-sur-Seine</a>
+            <a href="#zones" class="nav-dropdown-item"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="var(--tech-gold)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Levallois-Perret</a>
+          </div>
+        </div>
+      </div>
+      <a href="tel:0140883030" class="nav-phone desktop-phone">
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        01 40 88 30 30
+      </a>
+      <button class="mobile-menu-btn" onclick="document.getElementById('mobileMenu').classList.toggle('open')" style="display:none">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--tech-cyan)" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+    <div id="mobileMenu" class="mobile-menu">
+      <a href="#">Accueil</a>
+      <a href="#services">Services</a>
+      <a href="#teleassistance">Assistance informatique</a>
+      <a href="#contact">Contact</a>
+      <div class="mobile-locs-title">Nos localités</div>
+      <a href="#zones">Paris 16ème</a>
+      <a href="#zones">Paris 17ème</a>
+      <a href="#zones">Paris 8ème</a>
+      <a href="#zones">Neuilly-sur-Seine</a>
+      <a href="#zones">Levallois-Perret</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ====== HERO BANNER ====== -->
+<section style="position:relative;overflow:hidden">
+  <div class="hero-banner" style="position:relative">
+    <img src="banner-hero.png" alt="Allo PC Dépannage - Service de dépannage informatique PC et Mac">
+    <div class="hero-overlay"></div>
+    <div class="hero-overlay-left"></div>
+    <div class="hero-overlay-right"></div>
+  </div>
+  <div style="background:var(--tech-dark);position:relative" class="circuit-bg">
+    <div class="container hero-content">
+      <div class="hero-card">
+        <h1>Votre PC vous fait des misères <span style="color:var(--tech-cyan)">?</span></h1>
+        <p>Votre machine ne répond plus ? Alors plus une minute à perdre !</p>
+        <div style="display:inline-flex;align-items:center;gap:1rem;padding:0.75rem 1rem;margin-bottom:1rem" class="tech-card" style="border-radius:12px">
+          <span class="flex items-center gap-2"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="var(--tech-cyan)" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> <strong>PC</strong></span>
+          <span style="color:var(--tech-gold);font-size:1.3rem">+</span>
+          <span class="flex items-center gap-2"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"/><path d="M10 2c1 .5 2 2 2 5"/></svg> <strong>Mac</strong></span>
+          <span style="color:#6b7280">|</span>
+          <span style="font-size:0.8rem;color:#9ca3af">Fixes & Portables</span>
+        </div>
+        <div class="trust-badges">
+          <span class="trust-badge tech-card"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="var(--tech-gold)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Intervention &lt; 30 min</span>
+          <span class="trust-badge tech-card"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> 7j/7</span>
+          <span class="trust-badge tech-card"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="var(--tech-cyan)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Depuis 2002</span>
+        </div>
+        <a href="tel:0140883030" class="btn-gold" style="font-size:1.1rem">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          01 40 88 30 30
+        </a>
+        <p style="margin-top:1.25rem;font-size:0.8rem;color:#6b7280">Siège : 235 Bld Pereire, 75017 Paris</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SERVICES ====== -->
+<section id="services" class="section circuit-bg" style="background:var(--tech-dark)">
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,var(--tech-dark),rgba(26,58,92,0.2),var(--tech-dark))"></div>
+  <div class="container" style="position:relative;z-index:10">
+    <div class="section-header">
+      <span class="badge badge-gold glow-border"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Nos Services</span>
+      <h2 style="margin-top:1.5rem">Expertise <span style="color:var(--tech-cyan)">PC & Mac</span></h2>
+      <p>Des solutions professionnelles pour tous vos besoins informatiques</p>
+      <div style="display:flex;align-items:center;justify-content:center;gap:2rem;margin-top:2rem">
+        <span style="display:flex;align-items:center;gap:0.5rem;color:var(--tech-cyan);font-family:'Montserrat';font-weight:700;font-size:1.1rem"><svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> PC Windows</span>
+        <span style="width:1px;height:2rem;background:var(--tech-gold)"></span>
+        <span style="display:flex;align-items:center;gap:0.5rem;color:#fff;font-family:'Montserrat';font-weight:700;font-size:1.1rem"><svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"/><path d="M10 2c1 .5 2 2 2 5"/></svg> Mac Apple</span>
+      </div>
+    </div>
+    <div class="grid grid-3">
+      <div class="service-card tech-card featured glow-border">
+        <div class="service-icon featured"><svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="var(--tech-dark)" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3 style="color:var(--tech-gold)">Dépannage Urgent PC & Mac</h3>
+        <p>Intervention rapide en moins de 30 minutes pour tous vos problèmes informatiques urgents.</p>
+        <a href="tel:0140883030" style="display:inline-flex;align-items:center;margin-top:1.25rem;font-family:'Montserrat';font-weight:600;color:var(--tech-gold)">Appeler maintenant →</a>
+      </div>
+      <div class="service-card tech-card">
+        <div class="service-icon default"><svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="var(--tech-cyan)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3 style="color:#fff">Virus & Sécurité</h3>
+        <p>Suppression de virus, spywares et malwares. Installation d'antivirus et sécurisation.</p>
+      </div>
+      <div class="service-card tech-card">
+        <div class="service-icon default"><svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="var(--tech-cyan)" stroke-width="2"><line x1="22" y1="12" x2="2" y2="12"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/><line x1="6" y1="16" x2="6.01" y2="16"/><line x1="10" y1="16" x2="10.01" y2="16"/></svg></div>
+        <h3 style="color:#fff">Récupération Données</h3>
+        <p>Récupération de fichiers perdus sur disque dur, SSD, clé USB ou carte mémoire.</p>
+      </div>
+      <div class="service-card tech-card">
+        <div class="service-icon default"><svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="var(--tech-cyan)" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
+        <h3 style="color:#fff">Installation Réseau WiFi</h3>
+        <p>Configuration de votre réseau WiFi, routeur, répéteur et optimisation du signal.</p>
+      </div>
+      <div class="service-card tech-card">
+        <div class="service-icon default"><svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="var(--tech-cyan)" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <h3 style="color:#fff">Réparation Matériel</h3>
+        <p>Remplacement de composants défectueux, upgrade mémoire RAM, installation SSD.</p>
+      </div>
+      <div class="service-card tech-card">
+        <div class="service-icon default"><svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="var(--tech-cyan)" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 6 3 6 3s3 0 6-3v-5"/></svg></div>
+        <h3 style="color:#fff">Formation Informatique</h3>
+        <p>Initiation et perfectionnement adaptés à votre niveau sur Windows ou macOS.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== TELEASSISTANCE ====== -->
+<section id="teleassistance" class="section tele-section circuit-bg" style="background:var(--tech-dark);overflow:hidden">
+  <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,58,92,0.3),var(--tech-dark),rgba(0,212,255,0.1))"></div>
+  <div class="container" style="position:relative;z-index:10">
+    <div class="tele-grid">
+      <div>
+        <span class="badge badge-cyan glow-border-cyan" style="margin-bottom:1.5rem;display:inline-flex"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Nouveau</span>
+        <h2 style="font-weight:900;font-size:2rem;color:#fff;margin-bottom:1.5rem;line-height:1.3">Télé-assistance :<br><span class="text-glow" style="color:var(--tech-cyan)">On répare votre PC à distance !</span></h2>
+        <p style="color:#d1d5db;font-size:1.1rem;margin-bottom:2rem;line-height:1.7">Pas besoin de vous déplacer. Grâce à notre <strong style="color:var(--tech-gold)">prise en main à distance</strong>, nous résolvons vos problèmes informatiques directement depuis chez vous.</p>
+        <div class="tech-card" style="border-radius:12px;padding:1.5rem;margin-bottom:2rem">
+          <h3 style="font-weight:700;font-size:1.2rem;color:#fff;margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem"><span style="width:32px;height:32px;border-radius:50%;background:var(--tech-gold);display:flex;align-items:center;justify-content:center;color:var(--tech-dark);font-weight:700;font-size:0.9rem">?</span> Comment ça marche ?</h3>
+          <div class="step-item"><span class="step-num">1</span><span style="color:#d1d5db">Appelez-nous au <strong style="color:var(--tech-gold)">01 40 88 30 30</strong></span></div>
+          <div class="step-item"><span class="step-num">2</span><span style="color:#d1d5db">Téléchargez notre module de connexion</span></div>
+          <div class="step-item"><span class="step-num">3</span><span style="color:#d1d5db">Acceptez et autorisez la connexion</span></div>
+          <div class="step-item"><span class="step-num">4</span><span style="color:#d1d5db">C'est tout ! On s'occupe du reste</span></div>
+        </div>
+        <a href="https://get.teamviewer.com/mp9scqx" target="_blank" rel="noopener noreferrer" class="btn-gold" style="font-size:1.1rem;gap:0.75rem">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Télécharger le module
+        </a>
+        <p style="margin-top:1rem;font-size:0.85rem;color:#6b7280">Module sécurisé TeamViewer - Téléchargement gratuit</p>
+      </div>
+      <div>
+        <div class="tech-card" style="border-radius:1rem;padding:2rem;margin-bottom:2rem">
+          <div class="tele-visual">
+            <div style="text-align:center">
+              <div class="tele-pc" style="background:var(--tech-dark);border:2px solid var(--tech-gold)">😟</div>
+              <p style="color:#9ca3af;font-size:0.85rem;margin-top:0.5rem">Votre PC</p>
+            </div>
+            <div style="text-align:center">
+              <div style="display:flex;align-items:center;gap:0.25rem"><span style="width:12px;height:12px;border-radius:50%;background:var(--tech-cyan)"></span><span style="width:48px;height:2px;background:linear-gradient(to right,var(--tech-cyan),var(--tech-gold))"></span><span style="width:12px;height:12px;border-radius:50%;background:var(--tech-gold)"></span></div>
+              <p style="color:var(--tech-cyan);font-size:0.75rem;margin-top:0.5rem">Connexion sécurisée</p>
+            </div>
+            <div style="text-align:center">
+              <div class="tele-pc" style="background:rgba(0,212,255,0.15);border:2px solid var(--tech-cyan)">👨‍💻</div>
+              <p style="color:#9ca3af;font-size:0.85rem;margin-top:0.5rem">Notre expert</p>
+            </div>
+          </div>
+          <div style="text-align:center;margin-top:1.5rem">
+            <span style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(74,222,128,0.15);color:#4ade80;padding:0.5rem 1rem;border-radius:50px;font-family:'Montserrat';font-weight:600;font-size:0.85rem">
+              <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Problème résolu !
+            </span>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1rem">
+          <div class="benefit-card tech-card"><div class="benefit-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="var(--tech-gold)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><h4 style="font-weight:700;color:#fff;margin-bottom:0.25rem">Intervention immédiate</h4><p style="font-size:0.85rem;color:#9ca3af">Notre technicien se connecte en quelques secondes</p></div></div>
+          <div class="benefit-card tech-card"><div class="benefit-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="var(--tech-gold)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><h4 style="font-weight:700;color:#fff;margin-bottom:0.25rem">100% sécurisé</h4><p style="font-size:0.85rem;color:#9ca3af">Connexion cryptée, vous gardez le contrôle total</p></div></div>
+          <div class="benefit-card tech-card"><div class="benefit-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="var(--tech-gold)" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></div><div><h4 style="font-weight:700;color:#fff;margin-bottom:0.25rem">Accompagnement vocal</h4><p style="font-size:0.85rem;color:#9ca3af">On vous guide par téléphone pendant l'intervention</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== AVANTAGES ====== -->
+<section class="section" style="background:var(--tech-dark)">
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,58,92,0.1),var(--tech-dark))"></div>
+  <div class="container" style="position:relative;z-index:10">
+    <div class="section-header">
+      <span class="badge badge-gold"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Pourquoi nous choisir</span>
+      <h2 style="margin-top:1.5rem">Vos <span class="text-glow-gold" style="color:var(--tech-gold)">Avantages</span></h2>
+      <p>Une équipe de professionnels dédiée à vous simplifier l'informatique</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="advantage-card tech-card"><div class="advantage-icon"><svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="var(--tech-cyan)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h3 style="font-weight:700;font-size:1.2rem;color:#fff;margin-bottom:0.75rem">Intervention &lt; 30 min</h3><p style="color:#9ca3af;line-height:1.6">Un technicien peut être chez vous en moins de 30 minutes dans Paris et proche banlieue.</p></div>
+      <div class="advantage-card tech-card"><div class="advantage-icon"><svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="var(--tech-cyan)" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></div><h3 style="font-weight:700;font-size:1.2rem;color:#fff;margin-bottom:0.75rem">+20 ans d'expérience</h3><p style="color:#9ca3af;line-height:1.6">Depuis 2002, nous dépannons des milliers de clients PC et Mac avec expertise.</p></div>
+      <div class="advantage-card tech-card"><div class="advantage-icon"><svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="var(--tech-cyan)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3 style="font-weight:700;font-size:1.2rem;color:#fff;margin-bottom:0.75rem">7j/7 disponible</h3><p style="color:#9ca3af;line-height:1.6">Nous intervenons tous les jours, y compris le week-end, pour résoudre vos urgences.</p></div>
+      <div class="advantage-card tech-card"><div class="advantage-icon"><svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="var(--tech-cyan)" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg></div><h3 style="font-weight:700;font-size:1.2rem;color:#fff;margin-bottom:0.75rem">Obligation de résultat</h3><p style="color:#9ca3af;line-height:1.6">Nos forfaits incluent une garantie de résolution de votre problème informatique.</p></div>
+      <div class="advantage-card tech-card"><div class="advantage-icon"><svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="var(--tech-cyan)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><h3 style="font-weight:700;font-size:1.2rem;color:#fff;margin-bottom:0.75rem">Diagnostic gratuit</h3><p style="color:#9ca3af;line-height:1.6">Appelez-nous pour un premier diagnostic téléphonique sans engagement.</p></div>
+      <div class="advantage-card tech-card"><div class="advantage-icon"><svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="var(--tech-cyan)" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><h3 style="font-weight:700;font-size:1.2rem;color:#fff;margin-bottom:0.75rem">Matériel de prêt</h3><p style="color:#9ca3af;line-height:1.6">Nous mettons à disposition du matériel de remplacement pendant la réparation.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== ZONES ====== -->
+<section id="zones" class="section" style="background:var(--tech-dark)">
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,var(--tech-dark),rgba(26,58,92,0.1),var(--tech-dark))"></div>
+  <div class="container" style="position:relative;z-index:10">
+    <div class="section-header">
+      <span class="badge badge-cyan"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Zones d'intervention</span>
+      <h2 style="margin-top:1.5rem">Dépannage <span style="color:var(--tech-cyan)">PC & Mac</span> près de chez vous</h2>
+      <p>Nous intervenons rapidement dans l'Ouest parisien et les communes limitrophes</p>
+    </div>
+    <div class="grid grid-5">
+      <a href="#" class="zone-card tech-card"><div class="zone-header"><h3 style="font-weight:700;font-size:1.1rem;color:#fff">Paris 16ème</h3><span class="zone-code" style="background:rgba(0,212,255,0.15);color:var(--tech-cyan)">75016</span></div><p style="font-size:0.85rem;color:#9ca3af">Auteuil · Passy · Trocadéro</p></a>
+      <a href="#" class="zone-card tech-card featured glow-border"><div class="zone-header"><h3 style="font-weight:700;font-size:1.1rem;color:var(--tech-gold)">Paris 17ème</h3><span class="zone-code" style="background:rgba(245,166,35,0.15);color:var(--tech-gold)">75017</span></div><p style="font-size:0.85rem;color:#9ca3af">Batignolles · Ternes · Pereire</p><span style="display:inline-flex;align-items:center;gap:0.25rem;font-size:0.7rem;font-family:'Montserrat';font-weight:600;background:rgba(245,166,35,0.15);color:var(--tech-gold);padding:0.25rem 0.75rem;border-radius:4px;margin-top:0.75rem"><svg style="width:12px;height:12px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> SIÈGE SOCIAL</span></a>
+      <a href="#" class="zone-card tech-card"><div class="zone-header"><h3 style="font-weight:700;font-size:1.1rem;color:#fff">Paris 8ème</h3><span class="zone-code" style="background:rgba(0,212,255,0.15);color:var(--tech-cyan)">75008</span></div><p style="font-size:0.85rem;color:#9ca3af">Champs-Élysées · Madeleine · Saint-Lazare</p></a>
+      <a href="#" class="zone-card tech-card"><div class="zone-header"><h3 style="font-weight:700;font-size:1.1rem;color:#fff">Neuilly-sur-Seine</h3><span class="zone-code" style="background:rgba(0,212,255,0.15);color:var(--tech-cyan)">92200</span></div><p style="font-size:0.85rem;color:#9ca3af">Ile de la Jatte · Sablons · Bagatelle</p></a>
+      <a href="#" class="zone-card tech-card"><div class="zone-header"><h3 style="font-weight:700;font-size:1.1rem;color:#fff">Levallois-Perret</h3><span class="zone-code" style="background:rgba(0,212,255,0.15);color:var(--tech-cyan)">92300</span></div><p style="font-size:0.85rem;color:#9ca3af">Front de Seine · Louise Michel · Président Wilson</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- ====== TEMOIGNAGES ====== -->
+<section class="section" style="background:var(--tech-dark)">
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,var(--tech-dark),rgba(26,58,92,0.2),var(--tech-dark))"></div>
+  <div class="container" style="position:relative;z-index:10">
+    <div class="section-header">
+      <span class="badge badge-gold"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Témoignages</span>
+      <h2 style="margin-top:1.5rem">Ils nous font <span class="text-glow-gold" style="color:var(--tech-gold)">confiance</span></h2>
+      <p>Des milliers de clients PC et Mac satisfaits depuis 2002</p>
+    </div>
+    <div class="grid grid-2">
+      <div class="testimonial-card tech-card"><div style="display:flex;justify-content:space-between;margin-bottom:1rem"><span style="font-size:2rem;color:rgba(0,212,255,0.3)">❝</span><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div></div><p style="color:#d1d5db;line-height:1.6;margin-bottom:1rem">"Intervention rapide et efficace ! Mon PC ne démarrait plus et le technicien a tout réparé en moins d'une heure."</p><div class="testimonial-footer"><div><p style="font-family:'Montserrat';font-weight:600;color:#fff">Marie L.</p><p style="font-size:0.85rem;color:#6b7280">Paris 17</p></div><span style="font-size:0.75rem;color:var(--tech-cyan);background:rgba(0,212,255,0.15);padding:0.25rem 0.75rem;border-radius:50px">Dépannage PC</span></div></div>
+      <div class="testimonial-card tech-card"><div style="display:flex;justify-content:space-between;margin-bottom:1rem"><span style="font-size:2rem;color:rgba(0,212,255,0.3)">❝</span><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div></div><p style="color:#d1d5db;line-height:1.6;margin-bottom:1rem">"Mon MacBook avait un problème de disque dur. Ils ont récupéré toutes mes données. Équipe très professionnelle."</p><div class="testimonial-footer"><div><p style="font-family:'Montserrat';font-weight:600;color:#fff">Jean-Pierre D.</p><p style="font-size:0.85rem;color:#6b7280">Neuilly-sur-Seine</p></div><span style="font-size:0.75rem;color:var(--tech-cyan);background:rgba(0,212,255,0.15);padding:0.25rem 0.75rem;border-radius:50px">Réparation Mac</span></div></div>
+      <div class="testimonial-card tech-card"><div style="display:flex;justify-content:space-between;margin-bottom:1rem"><span style="font-size:2rem;color:rgba(0,212,255,0.3)">❝</span><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div></div><p style="color:#d1d5db;line-height:1.6;margin-bottom:1rem">"Depuis 2002 ils dépannent ma famille. PC comme Mac, ils savent tout faire. Toujours disponibles !"</p><div class="testimonial-footer"><div><p style="font-family:'Montserrat';font-weight:600;color:#fff">Sophie M.</p><p style="font-size:0.85rem;color:#6b7280">Paris 16</p></div><span style="font-size:0.75rem;color:var(--tech-cyan);background:rgba(0,212,255,0.15);padding:0.25rem 0.75rem;border-radius:50px">Fidèle cliente</span></div></div>
+      <div class="testimonial-card tech-card"><div style="display:flex;justify-content:space-between;margin-bottom:1rem"><span style="font-size:2rem;color:rgba(0,212,255,0.3)">❝</span><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div></div><p style="color:#d1d5db;line-height:1.6;margin-bottom:1rem">"Installation de mon réseau WiFi impeccable. Le technicien a connecté mon iMac et mes PC sans problème."</p><div class="testimonial-footer"><div><p style="font-family:'Montserrat';font-weight:600;color:#fff">Laurent B.</p><p style="font-size:0.85rem;color:#6b7280">Levallois-Perret</p></div><span style="font-size:0.75rem;color:var(--tech-cyan);background:rgba(0,212,255,0.15);padding:0.25rem 0.75rem;border-radius:50px">Installation réseau</span></div></div>
+    </div>
+    <div class="grid grid-4" style="margin-top:4rem">
+      <div class="stat-card tech-card"><p class="stat-num" style="color:#fff">+20</p><p style="font-size:0.85rem;color:#9ca3af;margin-top:0.5rem">Années d'expérience</p></div>
+      <div class="stat-card tech-card"><p class="stat-num" style="color:var(--tech-gold)">+10K</p><p style="font-size:0.85rem;color:#9ca3af;margin-top:0.5rem">Clients satisfaits</p></div>
+      <div class="stat-card tech-card"><p class="stat-num" style="color:#fff">&lt;30</p><p style="font-size:0.85rem;color:#9ca3af;margin-top:0.5rem">Min d'intervention</p></div>
+      <div class="stat-card tech-card"><p class="stat-num" style="color:var(--tech-cyan)">7/7</p><p style="font-size:0.85rem;color:#9ca3af;margin-top:0.5rem">Jours disponibles</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CTA ====== -->
+<section id="contact" class="section cta-section circuit-bg" style="background:var(--tech-dark);overflow:hidden">
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,var(--tech-blue),rgba(0,212,255,0.2),var(--tech-blue))"></div>
+  <div class="container" style="position:relative;z-index:10;text-align:center;max-width:800px">
+    <div style="display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:1.5rem">
+      <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="var(--tech-cyan)" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="var(--tech-gold)" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>
+    </div>
+    <h2 style="font-weight:900;font-size:2.2rem;color:#fff;margin-bottom:1.5rem">Un problème avec votre <span style="color:var(--tech-cyan)">PC</span> ou <span style="color:#fff">Mac</span> ?</h2>
+    <p style="font-size:1.2rem;color:#d1d5db;margin-bottom:2.5rem;max-width:640px;margin-left:auto;margin-right:auto;line-height:1.7">Ne perdez plus de temps. Appelez-nous maintenant et un technicien intervient chez vous en moins de 30 minutes.</p>
+    <a href="tel:0140883030" class="btn-gold" style="font-size:1.3rem;padding:18px 48px">
+      <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      01 40 88 30 30
+    </a>
+    <p style="margin-top:2rem;font-size:0.9rem;color:#6b7280">Diagnostic gratuit · Intervention 7j/7 · Obligation de résultat</p>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer" style="padding-bottom:4rem">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem">
+          <span class="logo-icon" style="width:40px;height:40px"><svg style="width:24px;height:24px" viewBox="0 0 24 24" fill="none" stroke="#0a1628" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+          <span style="font-family:'Montserrat';font-weight:900;font-size:1.2rem"><span style="color:#fff">ALLO</span><span style="color:var(--tech-cyan)">PC</span></span>
+        </div>
+        <p style="color:#9ca3af;font-size:0.9rem;line-height:1.6;margin-bottom:1.5rem">Depuis 2002, votre partenaire informatique de confiance à Paris. Dépannage PC et Mac 7j/7.</p>
+        <div style="display:flex;flex-direction:column;gap:0.75rem">
+          <a href="tel:0140883030" style="display:flex;align-items:center;gap:0.75rem;color:#9ca3af;font-size:0.9rem"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="var(--tech-gold)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 01 40 88 30 30</a>
+          <a href="mailto:contact@allopcdepannage.com" style="display:flex;align-items:center;gap:0.75rem;color:#9ca3af;font-size:0.9rem"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="var(--tech-cyan)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> contact@allopcdepannage.com</a>
+          <span style="display:flex;align-items:flex-start;gap:0.75rem;color:#9ca3af;font-size:0.9rem"><svg class="icon-sm" style="margin-top:2px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="var(--tech-gold)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> 235 Bld Pereire, 75017 Paris</span>
+        </div>
+      </div>
+      <div>
+        <h3>Nos Services</h3>
+        <ul class="footer-links">
+          <li><a href="#services">Dépannage PC</a></li>
+          <li><a href="#services">Dépannage Mac</a></li>
+          <li><a href="#services">Suppression Virus</a></li>
+          <li><a href="#services">Récupération Données</a></li>
+          <li><a href="#teleassistance">Télé-assistance</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Localités</h3>
+        <ul class="footer-links">
+          <li><a href="#zones">Paris 16ème</a></li>
+          <li><a href="#zones">Paris 17ème</a></li>
+          <li><a href="#zones">Paris 8ème</a></li>
+          <li><a href="#zones">Neuilly-sur-Seine</a></li>
+          <li><a href="#zones">Levallois-Perret</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Besoin d'aide ?</h3>
+        <p style="color:#9ca3af;font-size:0.9rem;margin-bottom:1.5rem;line-height:1.6">Un technicien peut intervenir chez vous en moins de 30 minutes.</p>
+        <a href="tel:0140883030" class="btn-gold" style="font-size:0.9rem;padding:10px 24px">
+          <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Appelez maintenant
+        </a>
+        <div class="tech-card" style="border-radius:12px;padding:1rem;margin-top:1.5rem">
+          <p style="font-family:'Montserrat';font-weight:600;font-size:0.85rem;color:var(--tech-gold);margin-bottom:0.25rem">+ de 20 ans d'expérience</p>
+          <p style="font-size:0.75rem;color:#6b7280">Des milliers de clients satisfaits depuis 2002</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Allo PC Dépannage. Tous droits réservés.</p>
+      <div style="display:flex;gap:1.5rem">
+        <a href="#">Mentions légales</a>
+        <a href="#">Politique de confidentialité</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile Call Bar -->
+<div class="mobile-call-bar">
+  <a href="tel:0140883030">
+    <svg style="width:20px;height:20px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    01 40 88 30 30 <span style="font-weight:400;opacity:0.8;font-size:0.9rem">- Appeler</span>
+  </a>
+</div>
+
+<script>
+// Mobile menu toggle
+const mobileBtn = document.querySelector('.mobile-menu-btn');
+if (window.innerWidth < 768) mobileBtn.style.display = 'block';
+window.addEventListener('resize', () => { mobileBtn.style.display = window.innerWidth < 768 ? 'block' : 'none'; });
+</script>
+
+</body>
+</html>
