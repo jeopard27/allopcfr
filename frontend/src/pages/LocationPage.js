@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { MapPin, Phone, CheckCircle, Clock, Zap, Shield, HardDrive, Wifi, Monitor, Apple } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import CTA from '../components/sections/CTA';
-import FAQ from '../components/sections/FAQ';
 
 const LOCATIONS_DATA = {
   "paris-16": {
@@ -259,7 +258,6 @@ export default function LocationPage() {
         </div>
       </section>
 
-      <FAQ />
       <CTA />
     </main>
   );
