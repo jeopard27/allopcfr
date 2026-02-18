@@ -1,6 +1,6 @@
 import { Phone, Menu, X, MapPin, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const COMPANY = {
   name: "Allo PC Dépannage",
@@ -9,10 +9,10 @@ const COMPANY = {
 };
 
 const NAV_LINKS = [
-  { name: "Accueil", path: "/" },
-  { name: "Services", path: "/#services" },
-  { name: "Zones d'intervention", path: "/#zones" },
-  { name: "Contact", path: "/contact" }
+  { name: "Accueil", path: "/", hash: null },
+  { name: "Services", path: "/", hash: "#services" },
+  { name: "Zones d'intervention", path: "/", hash: "#zones" },
+  { name: "Contact", path: "/contact", hash: null }
 ];
 
 const LOCATION_LINKS = [
