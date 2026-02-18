@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Monitor, Apple } from 'lucide-react';
 import axios from 'axios';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
 const SERVICES_OPTIONS = [
-  "Dépannage urgent",
+  "Dépannage PC",
+  "Dépannage Mac",
   "Suppression virus",
   "Récupération données",
   "Installation réseau",
@@ -68,50 +69,54 @@ export default function Contact() {
   };
 
   return (
-    <main className="min-h-screen bg-clinical-white" data-testid="contact-page">
+    <main className="min-h-screen bg-white" data-testid="contact-page">
       {/* Header */}
-      <section className="bg-deep-navy py-16 md:py-24">
+      <section className="bg-brand-navy py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-outfit font-extrabold text-4xl md:text-5xl text-white tracking-tight mb-6">
-            CONTACTEZ-NOUS
+          <div className="flex items-center justify-center space-x-4 mb-4">
+            <Monitor className="w-6 h-6 text-brand-blue-light" />
+            <Apple className="w-6 h-6 text-white/80" />
+          </div>
+          <h1 className="font-heading font-bold text-3xl md:text-4xl text-white mb-4">
+            Contactez-nous
           </h1>
-          <p className="font-ibm text-lg text-gray-400 max-w-2xl mx-auto">
-            Une question ? Besoin d'un devis ? Notre équipe est à votre disposition
+          <p className="font-body text-lg text-gray-400 max-w-2xl mx-auto">
+            Une question ? Besoin d'un devis pour votre PC ou Mac ? Notre équipe est à votre disposition
           </p>
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid lg:grid-cols-3 gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid lg:grid-cols-3 gap-10">
           {/* Contact Info */}
           <div className="lg:col-span-1">
-            <h2 className="font-outfit font-bold text-2xl text-deep-navy mb-8">
+            <h2 className="font-heading font-bold text-xl text-brand-navy mb-6">
               Informations
             </h2>
 
-            <div className="space-y-6">
+            <div className="space-y-5">
               {/* Phone */}
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-alert-orange rounded flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-white" />
+                <div className="w-10 h-10 bg-brand-blue rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-outfit font-semibold text-deep-navy">Téléphone</h3>
-                  <a href="tel:0140883030" className="font-ibm text-lg text-tech-blue hover:text-alert-orange transition-colors" data-testid="contact-phone">
+                  <h3 className="font-heading font-semibold text-brand-navy">Téléphone</h3>
+                  <a href="tel:0140883030" className="font-body text-lg text-brand-blue hover:text-brand-blue-dark transition-colors" data-testid="contact-phone">
                     01 40 88 30 30
                   </a>
-                  <p className="font-ibm text-sm text-gray-500 mt-1">Disponible 7j/7</p>
+                  <p className="font-body text-sm text-gray-500 mt-1">Disponible 7j/7</p>
                 </div>
               </div>
 
               {/* Email */}
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-tech-blue rounded flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-6 h-6 text-white" />
+                <div className="w-10 h-10 bg-brand-blue-light rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-outfit font-semibold text-deep-navy">Email</h3>
-                  <a href="mailto:contact@allopcdepannage.com" className="font-ibm text-tech-blue hover:text-alert-orange transition-colors" data-testid="contact-email">
+                  <h3 className="font-heading font-semibold text-brand-navy">Email</h3>
+                  <a href="mailto:contact@allopcdepannage.com" className="font-body text-brand-blue hover:text-brand-blue-dark transition-colors" data-testid="contact-email">
                     contact@allopcdepannage.com
                   </a>
                 </div>
@@ -119,12 +124,12 @@ export default function Contact() {
 
               {/* Address */}
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-deep-navy rounded flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-white" />
+                <div className="w-10 h-10 bg-brand-navy rounded-lg flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-outfit font-semibold text-deep-navy">Adresse</h3>
-                  <p className="font-ibm text-gray-600">
+                  <h3 className="font-heading font-semibold text-brand-navy">Adresse</h3>
+                  <p className="font-body text-gray-600">
                     Allo PC Dépannage<br />
                     235 Bld Pereire<br />
                     75017 Paris
@@ -134,12 +139,12 @@ export default function Contact() {
 
               {/* Hours */}
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-green-500 rounded flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-6 h-6 text-white" />
+                <div className="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-outfit font-semibold text-deep-navy">Disponibilité</h3>
-                  <p className="font-ibm text-gray-600">
+                  <h3 className="font-heading font-semibold text-brand-navy">Disponibilité</h3>
+                  <p className="font-body text-gray-600">
                     7 jours sur 7<br />
                     Intervention rapide
                   </p>
@@ -148,17 +153,17 @@ export default function Contact() {
             </div>
 
             {/* Quick call CTA */}
-            <div className="mt-10 p-6 bg-alert-orange/10 rounded border border-alert-orange/20">
-              <h3 className="font-outfit font-bold text-deep-navy mb-2">Urgence ?</h3>
-              <p className="font-ibm text-sm text-gray-600 mb-4">
+            <div className="mt-8 p-5 bg-brand-sky rounded-xl border border-brand-blue/20">
+              <h3 className="font-heading font-bold text-brand-navy mb-2">Urgence PC ou Mac ?</h3>
+              <p className="font-body text-sm text-gray-600 mb-4">
                 Pour une intervention rapide, appelez-nous directement.
               </p>
               <a
                 href="tel:0140883030"
-                className="inline-flex items-center space-x-2 bg-alert-orange text-white px-6 py-3 rounded font-outfit font-semibold btn-primary"
+                className="inline-flex items-center space-x-2 bg-brand-blue hover:bg-brand-blue-dark text-white px-5 py-3 rounded-lg font-heading font-semibold text-sm transition-all"
                 data-testid="contact-urgent-call"
               >
-                <Phone className="w-5 h-5" />
+                <Phone className="w-4 h-4" />
                 <span>Appeler maintenant</span>
               </a>
             </div>
@@ -166,36 +171,36 @@ export default function Contact() {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
-              <h2 className="font-outfit font-bold text-2xl text-deep-navy mb-2">
+            <div className="bg-brand-sky rounded-xl p-6 md:p-8">
+              <h2 className="font-heading font-bold text-xl text-brand-navy mb-2">
                 Demande de devis gratuit
               </h2>
-              <p className="font-ibm text-gray-600 mb-8">
-                Décrivez votre problème et nous vous recontacterons rapidement.
+              <p className="font-body text-gray-600 mb-6">
+                Décrivez votre problème PC ou Mac et nous vous recontacterons rapidement.
               </p>
 
               {submitStatus === 'success' && (
-                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded flex items-center space-x-3" data-testid="success-message">
-                  <CheckCircle className="w-6 h-6 text-green-500" />
-                  <p className="font-ibm text-green-700">
+                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center space-x-3" data-testid="success-message">
+                  <CheckCircle className="w-5 h-5 text-green-500" />
+                  <p className="font-body text-green-700">
                     Votre message a été envoyé avec succès. Nous vous recontacterons rapidement.
                   </p>
                 </div>
               )}
 
               {submitStatus === 'error' && (
-                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded" data-testid="error-message">
-                  <p className="font-ibm text-red-700">
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg" data-testid="error-message">
+                  <p className="font-body text-red-700">
                     Une erreur s'est produite. Veuillez réessayer ou nous appeler directement.
                   </p>
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-6" data-testid="contact-form">
-                <div className="grid md:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="space-y-5" data-testid="contact-form">
+                <div className="grid md:grid-cols-2 gap-5">
                   {/* Name */}
                   <div>
-                    <label htmlFor="name" className="block font-ibm font-medium text-deep-navy mb-2">
+                    <label htmlFor="name" className="block font-body font-medium text-brand-navy mb-2">
                       Nom complet *
                     </label>
                     <input
@@ -205,7 +210,7 @@ export default function Contact() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-tech-blue focus:border-tech-blue font-ibm"
+                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue font-body"
                       placeholder="Jean Dupont"
                       data-testid="input-name"
                     />
@@ -213,7 +218,7 @@ export default function Contact() {
 
                   {/* Email */}
                   <div>
-                    <label htmlFor="email" className="block font-ibm font-medium text-deep-navy mb-2">
+                    <label htmlFor="email" className="block font-body font-medium text-brand-navy mb-2">
                       Email *
                     </label>
                     <input
@@ -223,7 +228,7 @@ export default function Contact() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-tech-blue focus:border-tech-blue font-ibm"
+                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue font-body"
                       placeholder="jean@exemple.fr"
                       data-testid="input-email"
                     />
@@ -231,7 +236,7 @@ export default function Contact() {
 
                   {/* Phone */}
                   <div>
-                    <label htmlFor="phone" className="block font-ibm font-medium text-deep-navy mb-2">
+                    <label htmlFor="phone" className="block font-body font-medium text-brand-navy mb-2">
                       Téléphone
                     </label>
                     <input
@@ -240,7 +245,7 @@ export default function Contact() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-tech-blue focus:border-tech-blue font-ibm"
+                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue font-body"
                       placeholder="06 12 34 56 78"
                       data-testid="input-phone"
                     />
@@ -248,7 +253,7 @@ export default function Contact() {
 
                   {/* Location */}
                   <div>
-                    <label htmlFor="location" className="block font-ibm font-medium text-deep-navy mb-2">
+                    <label htmlFor="location" className="block font-body font-medium text-brand-navy mb-2">
                       Votre localisation
                     </label>
                     <select
@@ -256,7 +261,7 @@ export default function Contact() {
                       name="location"
                       value={formData.location}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-tech-blue focus:border-tech-blue font-ibm"
+                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue font-body"
                       data-testid="input-location"
                     >
                       <option value="">Sélectionnez</option>
@@ -269,7 +274,7 @@ export default function Contact() {
 
                 {/* Service */}
                 <div>
-                  <label htmlFor="service" className="block font-ibm font-medium text-deep-navy mb-2">
+                  <label htmlFor="service" className="block font-body font-medium text-brand-navy mb-2">
                     Type de service
                   </label>
                   <select
@@ -277,7 +282,7 @@ export default function Contact() {
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-tech-blue focus:border-tech-blue font-ibm"
+                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue font-body"
                     data-testid="input-service"
                   >
                     <option value="">Sélectionnez</option>
@@ -289,7 +294,7 @@ export default function Contact() {
 
                 {/* Message */}
                 <div>
-                  <label htmlFor="message" className="block font-ibm font-medium text-deep-navy mb-2">
+                  <label htmlFor="message" className="block font-body font-medium text-brand-navy mb-2">
                     Décrivez votre problème *
                   </label>
                   <textarea
@@ -299,8 +304,8 @@ export default function Contact() {
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-tech-blue focus:border-tech-blue font-ibm resize-none"
-                    placeholder="Mon ordinateur ne démarre plus depuis ce matin..."
+                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue font-body resize-none"
+                    placeholder="Mon ordinateur (PC ou Mac) ne démarre plus depuis ce matin..."
                     data-testid="input-message"
                   />
                 </div>
@@ -309,7 +314,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full md:w-auto inline-flex items-center justify-center space-x-2 bg-tech-blue text-white px-8 py-4 rounded font-outfit font-semibold text-lg btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full md:w-auto inline-flex items-center justify-center space-x-2 bg-brand-blue hover:bg-brand-blue-dark text-white px-8 py-4 rounded-lg font-heading font-semibold text-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   data-testid="submit-button"
                 >
                   {isSubmitting ? (
