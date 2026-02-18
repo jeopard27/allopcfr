@@ -4,49 +4,140 @@
     min-height: 100vh;
 }
 
-/* Hero animations */
+/* ===== ANIMATIONS ===== */
+
+/* Shake animation for broken PC */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.animate-shake {
+    animation: shake 0.5s ease-in-out infinite;
+}
+
+/* Slow bounce for happy PC */
+@keyframes bounce-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.animate-bounce-slow {
+    animation: bounce-slow 1s ease-in-out infinite;
+}
+
+/* Blink animation */
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+}
+
+.animate-blink {
+    animation: blink 1s ease-in-out infinite;
+}
+
+/* Progress bar animation */
+@keyframes progress {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+.animate-progress {
+    animation: progress 2s ease-in-out infinite;
+}
+
+/* Sparkle animation */
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1); }
+}
+
+.animate-sparkle {
+    animation: sparkle 1.5s ease-in-out infinite;
+}
+
+/* Glitch effect */
+@keyframes glitch {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.animate-glitch {
+    animation: glitch 0.3s ease-in-out infinite;
+}
+
+/* Slow spin */
+@keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 2s linear infinite;
+}
+
+/* Float animation */
 @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
 }
 
-.float-animation {
+.animate-float {
     animation: float 3s ease-in-out infinite;
 }
 
-/* Pulse animation for phone */
-@keyframes pulse-phone {
-    0% { box-shadow: 0 0 0 0 rgba(255, 79, 0, 0.7); }
-    70% { box-shadow: 0 0 0 15px rgba(255, 79, 0, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(255, 79, 0, 0); }
+.animate-float-delayed {
+    animation: float 3s ease-in-out infinite;
+    animation-delay: 1.5s;
 }
 
-.pulse-phone {
-    animation: pulse-phone 2s infinite;
+/* Fade in */
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-/* Bento grid hover effects */
-.bento-item {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
 }
 
-.bento-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+/* Wiggle animation for phone icon */
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
 }
+
+.animate-wiggle {
+    animation: wiggle 0.5s ease-in-out infinite;
+}
+
+/* Subtle pulse for CTA button */
+@keyframes pulse-subtle {
+    0%, 100% { box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4); }
+    50% { box-shadow: 0 4px 25px rgba(249, 115, 22, 0.6); }
+}
+
+.animate-pulse-subtle {
+    animation: pulse-subtle 2s ease-in-out infinite;
+}
+
+/* ===== HOVER EFFECTS ===== */
 
 /* Button hover effects */
-.btn-primary {
-    transition: all 0.2s ease;
+.btn-hover {
+    transition: all 0.3s ease;
 }
 
-.btn-primary:hover {
-    transform: scale(1.02);
-    filter: brightness(1.1);
+.btn-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.btn-primary:active {
-    transform: scale(0.98);
+.btn-hover:active {
+    transform: translateY(0);
 }
 
 /* Link underline animation */
@@ -61,7 +152,7 @@
     height: 2px;
     bottom: -2px;
     left: 0;
-    background-color: #0047FF;
+    background-color: #2563eb;
     transition: width 0.3s ease;
 }
 
@@ -69,20 +160,25 @@
     width: 100%;
 }
 
-/* FAQ accordion */
-.faq-content {
-    overflow: hidden;
-    transition: max-height 0.3s ease;
+/* Card hover effect */
+.card-hover {
+    transition: all 0.3s ease;
 }
 
-/* Mobile call bar */
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== MOBILE CALL BAR ===== */
+
 .mobile-call-bar {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     z-index: 50;
-    background: linear-gradient(135deg, #FF4F00 0%, #ff6b2b 100%);
+    background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
     padding: 12px 16px;
     display: flex;
     justify-content: center;
@@ -96,12 +192,43 @@
     }
 }
 
-/* Smooth section transitions */
-section {
-    opacity: 1;
+/* ===== FAQ ACCORDION ===== */
+
+.faq-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease;
 }
 
-/* Image lazy loading placeholder */
+/* ===== SCROLLBAR ===== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background-color: #2563eb;
+    color: white;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #2563eb, #06b6d4);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #1d4ed8, #0891b2);
+}
+
+/* ===== LOADING SHIMMER ===== */
+
 .img-placeholder {
     background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
     background-size: 200% 100%;
