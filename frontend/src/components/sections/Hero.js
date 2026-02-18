@@ -97,11 +97,11 @@ export default function Hero({ location = null }) {
   return (
     <section className="relative overflow-hidden" data-testid="hero-section">
       {/* Banner Image — full width with overflow */}
-      <div className="relative w-full h-[420px] md:h-[520px] lg:h-[600px] bg-[#1a3a8c]">
+      <div className="relative w-full bg-tech-dark">
         <img 
           src="/banner-hero.png" 
           alt="Allo PC Dépannage - Service de dépannage informatique PC et Mac"
-          className="w-full h-full object-contain"
+          className="w-full h-auto block"
           data-testid="hero-banner-image"
         />
         {/* Dark overlay for text readability */}
