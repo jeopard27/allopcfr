@@ -1,4 +1,4 @@
-import { Phone, Menu, X, MapPin, ChevronDown } from 'lucide-react';
+import { Phone, Menu, X, MapPin, ChevronDown, Monitor } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
@@ -11,7 +11,7 @@ const COMPANY = {
 const NAV_LINKS = [
   { name: "Accueil", path: "/", hash: null },
   { name: "Services", path: "/", hash: "#services" },
-  { name: "Zones d'intervention", path: "/", hash: "#zones" },
+  { name: "Assistance informatique", path: "/", hash: "#teleassistance" },
   { name: "Contact", path: "/contact", hash: null }
 ];
 
