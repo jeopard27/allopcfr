@@ -1,4 +1,4 @@
-import { Clock, Award, Users, ThumbsUp, Phone, Truck } from 'lucide-react';
+import { Clock, Award, Users, ThumbsUp, Phone, Truck, Zap } from 'lucide-react';
 
 const ADVANTAGES = [
   {
@@ -35,17 +35,21 @@ const ADVANTAGES = [
 
 export default function Advantages() {
   return (
-    <section className="py-16 md:py-24 bg-brand-sky" data-testid="advantages-section">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 md:py-28 bg-tech-dark relative" data-testid="advantages-section">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-tech-blue/10 to-tech-dark"></div>
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12">
-          <span className="inline-block font-heading font-semibold text-brand-blue text-sm uppercase tracking-widest mb-4">
-            Pourquoi nous choisir
+        <div className="text-center mb-16">
+          <span className="inline-flex items-center space-x-2 bg-tech-gold/20 text-tech-gold px-4 py-2 rounded-full mb-6">
+            <Zap className="w-4 h-4" />
+            <span className="font-heading font-semibold text-sm uppercase tracking-widest">Pourquoi nous choisir</span>
           </span>
-          <h2 className="font-heading font-bold text-3xl md:text-4xl text-brand-navy mb-4">
-            Vos Avantages
+          <h2 className="font-heading font-black text-4xl md:text-5xl text-white mb-6">
+            Vos <span className="text-tech-gold text-glow-gold">Avantages</span>
           </h2>
-          <p className="font-body text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="font-body text-lg text-gray-400 max-w-2xl mx-auto">
             Une équipe de professionnels dédiée à vous simplifier l'informatique
           </p>
         </div>
@@ -57,16 +61,16 @@ export default function Advantages() {
             return (
               <div
                 key={index}
-                className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+                className="tech-card p-6 rounded-xl"
                 data-testid={`advantage-${index}`}
               >
-                <div className="w-12 h-12 bg-brand-blue/10 rounded-lg flex items-center justify-center mb-4">
-                  <Icon className="w-6 h-6 text-brand-blue" />
+                <div className="w-14 h-14 bg-tech-cyan/10 rounded-xl flex items-center justify-center mb-5 border border-tech-cyan/30">
+                  <Icon className="w-7 h-7 text-tech-cyan" />
                 </div>
-                <h3 className="font-heading font-bold text-lg text-brand-navy mb-2">
+                <h3 className="font-heading font-bold text-xl text-white mb-3">
                   {advantage.title}
                 </h3>
-                <p className="font-body text-gray-600 text-sm leading-relaxed">
+                <p className="font-body text-gray-400 leading-relaxed">
                   {advantage.description}
                 </p>
               </div>
