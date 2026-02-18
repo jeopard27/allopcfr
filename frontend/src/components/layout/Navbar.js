@@ -27,10 +27,34 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [showLocations, setShowLocations] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const isActive = (path) => {
     if (path === '/') return location.pathname === '/';
     return location.pathname.startsWith(path);
+  };
+
+  // Handle navigation with hash
+  const handleNavClick = (e, link) => {
+    if (link.hash) {
+      e.preventDefault();
+      if (location.pathname !== '/') {
+        // Navigate to home first, then scroll
+        navigate('/');
+        setTimeout(() => {
+          const element = document.querySelector(link.hash);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        // Already on home, just scroll
+        const element = document.querySelector(link.hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
   };
 
   return (
