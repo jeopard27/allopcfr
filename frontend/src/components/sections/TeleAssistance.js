@@ -67,7 +67,7 @@ export default function TeleAssistance() {
                 </li>
                 <li className="flex items-start">
                   <span className="w-6 h-6 bg-tech-cyan/20 rounded-full flex items-center justify-center mr-3 flex-shrink-0 text-sm font-bold text-tech-cyan">3</span>
-                  <span>Communiquez le code à notre technicien</span>
+                  <span>Acceptez et autorisez la connexion</span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-6 h-6 bg-tech-cyan/20 rounded-full flex items-center justify-center mr-3 flex-shrink-0 text-sm font-bold text-tech-cyan">4</span>
