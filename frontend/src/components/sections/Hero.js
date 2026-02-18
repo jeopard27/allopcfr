@@ -175,13 +175,6 @@ export default function Hero({ location = null }) {
                   <Phone className="w-5 h-5" />
                   <span>01 40 88 30 30</span>
                 </a>
-                <Link
-                  to="/contact"
-                  className="btn-tech-outline inline-flex items-center justify-center text-base py-3.5"
-                  data-testid="hero-contact-button"
-                >
-                  Demander un devis gratuit
-                </Link>
               </div>
 
               <p className="mt-5 font-body text-xs text-gray-500">

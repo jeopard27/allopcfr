@@ -36,13 +36,6 @@ export default function CTA() {
             <Phone className="w-6 h-6" />
             <span>01 40 88 30 30</span>
           </a>
-          <Link
-            to="/contact"
-            className="btn-tech-outline inline-flex items-center justify-center text-xl px-10 py-5"
-            data-testid="cta-contact-button"
-          >
-            Demander un devis
-          </Link>
         </div>
 
         <p className="mt-8 font-body text-sm text-gray-500">

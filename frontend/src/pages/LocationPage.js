@@ -174,12 +174,6 @@ export default function LocationPage() {
               <Phone className="w-5 h-5" />
               <span>01 40 88 30 30</span>
             </a>
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center bg-white border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white px-8 py-4 rounded-lg font-heading font-semibold text-lg transition-all"
-            >
-              Demander un devis gratuit
-            </Link>
           </div>
         </div>
       </section>
