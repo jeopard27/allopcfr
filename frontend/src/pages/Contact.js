@@ -1,9 +1,12 @@
 import { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Monitor, Apple } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Monitor, Apple, MessageCircle } from 'lucide-react';
 import axios from 'axios';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
+
+const WHATSAPP_NUMBER = "33140883030";
+const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=Bonjour, j'ai besoin d'un dépannage informatique.`;
 
 const SERVICES_OPTIONS = [
   "Dépannage PC",
