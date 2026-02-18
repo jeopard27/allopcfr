@@ -227,7 +227,7 @@ export default function Hero({ location = null }) {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="tel:0140883030"
-                className="btn-tech inline-flex items-center justify-center space-x-3 text-lg"
+                className="inline-flex items-center justify-center space-x-3 bg-gradient-to-r from-tech-gold to-tech-orange text-tech-dark px-8 py-4 rounded-full font-heading font-bold text-lg transition-all duration-300 shadow-lg shadow-tech-gold/40 hover:shadow-tech-gold/60 hover:scale-105"
                 data-testid="hero-call-button"
               >
                 <Phone className="w-5 h-5" />
