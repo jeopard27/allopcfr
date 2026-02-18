@@ -164,13 +164,16 @@ export default function Navbar() {
             {NAV_LINKS.map((link, index) => (
               <Link
                 key={link.name}
-                to={link.path}
+                to={link.hash ? link.path : link.path}
+                onClick={(e) => {
+                  handleNavClick(e, link);
+                  setIsOpen(false);
+                }}
                 className={`block py-3 px-4 font-heading font-semibold rounded-lg transition-all duration-200 ${
-                  isActive(link.path) 
+                  isActive(link.path) && !link.hash
                     ? 'bg-blue-600 text-white' 
                     : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'
                 }`}
-                onClick={() => setIsOpen(false)}
                 style={{ animationDelay: `${index * 50}ms` }}
                 data-testid={`mobile-nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
               >
@@ -179,7 +182,7 @@ export default function Navbar() {
             ))}
             
             <div className="pt-2 border-t border-gray-100">
-              <p className="text-xs text-gray-500 mb-2 px-4 font-semibold uppercase">Zones d'intervention</p>
+              <p className="text-xs text-gray-500 mb-2 px-4 font-semibold uppercase">Nos localités</p>
               {LOCATION_LINKS.map((loc) => (
                 <Link
                   key={loc.name}
