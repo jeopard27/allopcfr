@@ -1,4 +1,4 @@
-import { Phone, Menu, X, MapPin, ChevronDown, Monitor } from 'lucide-react';
+import { Phone, Menu, X, MapPin, ChevronDown, Zap } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
@@ -34,12 +34,10 @@ export default function Navbar() {
     return location.pathname.startsWith(path);
   };
 
-  // Handle navigation with hash
   const handleNavClick = (e, link) => {
     if (link.hash) {
       e.preventDefault();
       if (location.pathname !== '/') {
-        // Navigate to home first, then scroll
         navigate('/');
         setTimeout(() => {
           const element = document.querySelector(link.hash);
@@ -48,7 +46,6 @@ export default function Navbar() {
           }
         }, 100);
       } else {
-        // Already on home, just scroll
         const element = document.querySelector(link.hash);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
@@ -59,42 +56,45 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-40">
-      {/* Top Banner - Full Width with original logo style */}
-      <div className="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-400 w-full">
-        <div className="max-w-7xl mx-auto">
-          <Link to="/" className="block" data-testid="logo-link">
-            <img 
-              src="https://allopcdepannage.fr/img/AlloPC_04.gif" 
-              alt="Allo PC Dépannage" 
-              className="w-full max-w-3xl h-auto mx-auto"
-            />
+      {/* Top Banner with tech gradient */}
+      <div className="bg-gradient-to-r from-tech-dark via-tech-blue to-tech-dark w-full border-b-2 border-tech-gold/30">
+        <div className="max-w-7xl mx-auto py-3">
+          <Link to="/" className="flex items-center justify-center space-x-3" data-testid="logo-link">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-tech-gold to-tech-orange flex items-center justify-center shadow-lg shadow-tech-gold/30">
+              <Zap className="w-6 h-6 text-tech-dark" />
+            </div>
+            <span className="font-heading font-black text-2xl md:text-3xl">
+              <span className="text-white">ALLO</span>
+              <span className="text-tech-cyan">PC</span>
+              <span className="text-tech-cyan ml-2 font-light">DÉPANNAGE</span>
+            </span>
           </Link>
         </div>
       </div>
 
       {/* Navigation Bar */}
-      <nav className="bg-white border-b-4 border-blue-600 shadow-lg">
+      <nav className="bg-tech-dark/95 backdrop-blur-md border-b border-tech-cyan/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-14">
             
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center justify-center flex-1 space-x-2">
+            <div className="hidden md:flex items-center justify-center flex-1 space-x-1">
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.name}
                   to={link.hash ? link.path : link.path}
                   onClick={(e) => handleNavClick(e, link)}
-                  className={`relative px-5 py-2 font-heading font-semibold text-sm uppercase tracking-wide transition-all duration-300 rounded-md group ${
+                  className={`relative px-5 py-2 font-heading font-semibold text-sm uppercase tracking-wide transition-all duration-300 rounded-lg group ${
                     isActive(link.path) && !link.hash
-                      ? 'bg-blue-600 text-white shadow-md' 
-                      : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'
+                      ? 'bg-tech-cyan/20 text-tech-cyan' 
+                      : 'text-gray-300 hover:text-tech-cyan hover:bg-tech-cyan/10'
                   }`}
                   data-testid={`nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
                 >
                   <span className="relative z-10">{link.name}</span>
-                  {!(isActive(link.path) && !link.hash) && (
-                    <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-4/5 group-hover:left-[10%]"></span>
-                  )}
+                  <span className={`absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-tech-gold transition-all duration-300 group-hover:w-3/4 ${
+                    isActive(link.path) && !link.hash ? 'w-3/4' : ''
+                  }`}></span>
                 </Link>
               ))}
               
@@ -105,7 +105,7 @@ export default function Navbar() {
                 onMouseLeave={() => setShowLocations(false)}
               >
                 <button 
-                  className="flex items-center space-x-1 px-5 py-2 font-heading font-semibold text-sm uppercase tracking-wide text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 rounded-md group"
+                  className="flex items-center space-x-1 px-5 py-2 font-heading font-semibold text-sm uppercase tracking-wide text-gray-300 hover:text-tech-cyan hover:bg-tech-cyan/10 transition-all duration-300 rounded-lg group"
                   data-testid="locations-dropdown"
                 >
                   <MapPin className="w-4 h-4" />
@@ -114,18 +114,18 @@ export default function Navbar() {
                 </button>
                 
                 {/* Dropdown Menu */}
-                <div className={`absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-2xl border border-gray-100 py-2 transition-all duration-300 origin-top ${
+                <div className={`absolute top-full left-0 mt-2 w-56 bg-tech-dark/95 backdrop-blur-md rounded-xl shadow-2xl border border-tech-cyan/20 py-2 transition-all duration-300 origin-top ${
                   showLocations ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'
                 }`}>
                   {LOCATION_LINKS.map((loc, index) => (
                     <Link
                       key={loc.name}
                       to={loc.path}
-                      className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-cyan-50 hover:text-blue-600 transition-all duration-200 group"
+                      className="flex items-center px-4 py-3 text-sm text-gray-300 hover:bg-tech-cyan/10 hover:text-tech-cyan transition-all duration-200 group"
                       style={{ animationDelay: `${index * 50}ms` }}
                       data-testid={`loc-${loc.name.toLowerCase().replace(/\s+/g, '-')}`}
                     >
-                      <MapPin className="w-4 h-4 mr-3 text-blue-400 group-hover:text-blue-600 transition-colors" />
+                      <MapPin className="w-4 h-4 mr-3 text-tech-gold group-hover:text-tech-cyan transition-colors" />
                       <span className="font-medium">{loc.name}</span>
                     </Link>
                   ))}
@@ -137,27 +137,27 @@ export default function Navbar() {
             <div className="hidden md:flex items-center">
               <a
                 href={COMPANY.phoneLink}
-                className="flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-6 py-2.5 rounded-full font-heading font-bold text-sm transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 animate-pulse-subtle"
+                className="btn-tech flex items-center space-x-2 text-sm"
                 data-testid="call-button"
               >
-                <Phone className="w-4 h-4 animate-wiggle" />
+                <Phone className="w-4 h-4" />
                 <span>{COMPANY.phone}</span>
               </a>
             </div>
 
             {/* Mobile menu button */}
             <button
-              className="md:hidden p-2 rounded-lg hover:bg-blue-50 transition-colors"
+              className="md:hidden p-2 rounded-lg hover:bg-tech-cyan/10 transition-colors"
               onClick={() => setIsOpen(!isOpen)}
               data-testid="mobile-menu-button"
             >
-              {isOpen ? <X className="w-6 h-6 text-blue-600" /> : <Menu className="w-6 h-6 text-blue-600" />}
+              {isOpen ? <X className="w-6 h-6 text-tech-cyan" /> : <Menu className="w-6 h-6 text-tech-cyan" />}
             </button>
           </div>
         </div>
 
         {/* Mobile Menu */}
-        <div className={`md:hidden bg-white border-t border-gray-100 shadow-lg overflow-hidden transition-all duration-300 ${
+        <div className={`md:hidden bg-tech-dark/95 backdrop-blur-md border-t border-tech-cyan/20 overflow-hidden transition-all duration-300 ${
           isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
         }`}>
           <div className="px-4 py-4 space-y-2">
@@ -171,8 +171,8 @@ export default function Navbar() {
                 }}
                 className={`block py-3 px-4 font-heading font-semibold rounded-lg transition-all duration-200 ${
                   isActive(link.path) && !link.hash
-                    ? 'bg-blue-600 text-white' 
-                    : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'
+                    ? 'bg-tech-cyan/20 text-tech-cyan' 
+                    : 'text-gray-300 hover:bg-tech-cyan/10 hover:text-tech-cyan'
                 }`}
                 style={{ animationDelay: `${index * 50}ms` }}
                 data-testid={`mobile-nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
@@ -181,16 +181,16 @@ export default function Navbar() {
               </Link>
             ))}
             
-            <div className="pt-2 border-t border-gray-100">
-              <p className="text-xs text-gray-500 mb-2 px-4 font-semibold uppercase">Nos localités</p>
+            <div className="pt-2 border-t border-tech-cyan/20">
+              <p className="text-xs text-tech-gold mb-2 px-4 font-semibold uppercase">Nos localités</p>
               {LOCATION_LINKS.map((loc) => (
                 <Link
                   key={loc.name}
                   to={loc.path}
-                  className="flex items-center py-2 px-4 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all"
+                  className="flex items-center py-2 px-4 text-sm text-gray-400 hover:text-tech-cyan hover:bg-tech-cyan/10 rounded-lg transition-all"
                   onClick={() => setIsOpen(false)}
                 >
-                  <MapPin className="w-4 h-4 mr-2 text-blue-400" />
+                  <MapPin className="w-4 h-4 mr-2 text-tech-gold" />
                   {loc.name}
                 </Link>
               ))}
@@ -199,7 +199,7 @@ export default function Navbar() {
             {/* Mobile call button */}
             <a
               href={COMPANY.phoneLink}
-              className="flex items-center justify-center space-x-2 bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-3 rounded-full font-heading font-bold mt-4"
+              className="btn-tech flex items-center justify-center space-x-2 w-full mt-4"
             >
               <Phone className="w-5 h-5" />
               <span>{COMPANY.phone}</span>
