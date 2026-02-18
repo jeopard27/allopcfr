@@ -59,45 +59,45 @@ LOCATIONS_DATA = {
     "paris-16": {
         "name": "Paris 16ème",
         "slug": "paris-16",
-        "title": "Dépannage PC Paris 16 | Allo PC Dépannage",
-        "meta_description": "Dépannage informatique à Paris 16ème (75016). Intervention rapide 7j/7 à domicile. Réparation PC, suppression virus, récupération données. Appelez le 01 40 88 30 30",
-        "h1": "Dépannage PC Paris 16ème",
+        "title": "Dépannage PC et Mac Paris 16 | Allo PC Dépannage",
+        "meta_description": "Dépannage informatique PC et Mac à Paris 16ème (75016). Intervention rapide 7j/7 à domicile. Réparation PC Windows, iMac, MacBook. Appelez le 01 40 88 30 30",
+        "h1": "Dépannage PC et Mac Paris 16ème",
         "neighborhoods": ["Auteuil", "Passy", "Chaillot", "Muette", "Porte Dauphine", "Trocadéro"],
         "postal_code": "75016"
     },
     "paris-17": {
         "name": "Paris 17ème",
         "slug": "paris-17",
-        "title": "Dépannage PC Paris 17 | Allo PC Dépannage - Siège Social",
-        "meta_description": "Dépannage informatique à Paris 17ème (75017). Notre siège au 235 Bld Pereire. Intervention 7j/7, moins de 30 min. Appelez le 01 40 88 30 30",
-        "h1": "Dépannage PC Paris 17ème",
+        "title": "Dépannage PC et Mac Paris 17 | Allo PC Dépannage - Siège Social",
+        "meta_description": "Dépannage informatique PC et Mac à Paris 17ème (75017). Notre siège au 235 Bld Pereire. Intervention 7j/7, moins de 30 min. Appelez le 01 40 88 30 30",
+        "h1": "Dépannage PC et Mac Paris 17ème",
         "neighborhoods": ["Batignolles", "Épinettes", "Ternes", "Plaine Monceau", "Pereire"],
         "postal_code": "75017"
     },
     "paris-8": {
         "name": "Paris 8ème",
         "slug": "paris-8",
-        "title": "Dépannage PC Paris 8 | Allo PC Dépannage",
-        "meta_description": "Dépannage informatique à Paris 8ème (75008). Champs-Élysées, Madeleine, Saint-Lazare. Intervention rapide 7j/7. Appelez le 01 40 88 30 30",
-        "h1": "Dépannage PC Paris 8ème",
+        "title": "Dépannage PC et Mac Paris 8 | Allo PC Dépannage",
+        "meta_description": "Dépannage informatique PC et Mac à Paris 8ème (75008). Champs-Élysées, Madeleine, Saint-Lazare. Intervention rapide 7j/7. Appelez le 01 40 88 30 30",
+        "h1": "Dépannage PC et Mac Paris 8ème",
         "neighborhoods": ["Champs-Élysées", "Madeleine", "Saint-Lazare", "Europe", "Faubourg du Roule"],
         "postal_code": "75008"
     },
     "neuilly-sur-seine": {
         "name": "Neuilly-sur-Seine",
         "slug": "neuilly-sur-seine",
-        "title": "Dépannage PC Neuilly-sur-Seine | Allo PC Dépannage",
-        "meta_description": "Dépannage informatique à Neuilly-sur-Seine (92200). Intervention rapide à domicile 7j/7. Réparation PC, Mac, suppression virus. Appelez le 01 40 88 30 30",
-        "h1": "Dépannage PC Neuilly-sur-Seine",
+        "title": "Dépannage PC et Mac Neuilly-sur-Seine | Allo PC Dépannage",
+        "meta_description": "Dépannage informatique PC et Mac à Neuilly-sur-Seine (92200). Intervention rapide à domicile 7j/7. Réparation iMac, MacBook, PC. Appelez le 01 40 88 30 30",
+        "h1": "Dépannage PC et Mac Neuilly-sur-Seine",
         "neighborhoods": ["Ile de la Jatte", "Sablons", "Bagatelle", "Saint-James", "Château"],
         "postal_code": "92200"
     },
     "levallois-perret": {
         "name": "Levallois-Perret",
         "slug": "levallois-perret",
-        "title": "Dépannage Informatique Levallois-Perret | Allo PC Dépannage",
-        "meta_description": "Dépannage informatique à Levallois-Perret (92300). Intervention rapide 7j/7 pour particuliers et entreprises. Appelez le 01 40 88 30 30",
-        "h1": "Dépannage Informatique Levallois-Perret",
+        "title": "Dépannage PC et Mac Levallois-Perret | Allo PC Dépannage",
+        "meta_description": "Dépannage informatique PC et Mac à Levallois-Perret (92300). Intervention rapide 7j/7 pour particuliers et entreprises. Appelez le 01 40 88 30 30",
+        "h1": "Dépannage PC et Mac Levallois-Perret",
         "neighborhoods": ["Front de Seine", "Louise Michel", "Président Wilson", "Gustave Eiffel"],
         "postal_code": "92300"
     }
