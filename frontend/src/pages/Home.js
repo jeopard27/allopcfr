@@ -4,7 +4,6 @@ import TeleAssistance from '../components/sections/TeleAssistance';
 import Advantages from '../components/sections/Advantages';
 import Zones from '../components/sections/Zones';
 import Testimonials from '../components/sections/Testimonials';
-import FAQ from '../components/sections/FAQ';
 import CTA from '../components/sections/CTA';
 
 export default function Home() {
@@ -16,7 +15,6 @@ export default function Home() {
       <Advantages />
       <Zones />
       <Testimonials />
-      <FAQ />
       <CTA />
     </main>
   );
