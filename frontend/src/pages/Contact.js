@@ -153,22 +153,54 @@ export default function Contact() {
                   </p>
                 </div>
               </div>
+
+              {/* WhatsApp */}
+              <div className="flex items-start space-x-4">
+                <div className="w-10 h-10 bg-[#25D366] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <MessageCircle className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h3 className="font-heading font-semibold text-brand-navy">WhatsApp</h3>
+                  <a 
+                    href={WHATSAPP_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-body text-[#25D366] hover:text-green-700 transition-colors"
+                    data-testid="contact-whatsapp"
+                  >
+                    +33 1 40 88 30 30
+                  </a>
+                  <p className="font-body text-sm text-gray-500 mt-1">Réponse rapide</p>
+                </div>
+              </div>
             </div>
 
             {/* Quick call CTA */}
             <div className="mt-8 p-5 bg-brand-sky rounded-xl border border-brand-blue/20">
               <h3 className="font-heading font-bold text-brand-navy mb-2">Urgence PC ou Mac ?</h3>
               <p className="font-body text-sm text-gray-600 mb-4">
-                Pour une intervention rapide, appelez-nous directement.
+                Pour une intervention rapide, appelez-nous ou contactez-nous sur WhatsApp.
               </p>
-              <a
-                href="tel:0140883030"
-                className="inline-flex items-center space-x-2 bg-brand-blue hover:bg-brand-blue-dark text-white px-5 py-3 rounded-lg font-heading font-semibold text-sm transition-all"
-                data-testid="contact-urgent-call"
-              >
-                <Phone className="w-4 h-4" />
-                <span>Appeler maintenant</span>
-              </a>
+              <div className="flex flex-col space-y-3">
+                <a
+                  href="tel:0140883030"
+                  className="inline-flex items-center justify-center space-x-2 bg-brand-blue hover:bg-brand-blue-dark text-white px-5 py-3 rounded-lg font-heading font-semibold text-sm transition-all"
+                  data-testid="contact-urgent-call"
+                >
+                  <Phone className="w-4 h-4" />
+                  <span>Appeler maintenant</span>
+                </a>
+                <a
+                  href={WHATSAPP_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center space-x-2 bg-[#25D366] hover:bg-green-600 text-white px-5 py-3 rounded-lg font-heading font-semibold text-sm transition-all"
+                  data-testid="contact-whatsapp-btn"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>WhatsApp</span>
+                </a>
+              </div>
             </div>
           </div>
 
