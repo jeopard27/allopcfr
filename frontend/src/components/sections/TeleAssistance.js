@@ -1,4 +1,4 @@
-import { Monitor, Download, Shield, Clock, CheckCircle, Headphones } from 'lucide-react';
+import { Monitor, Download, Shield, Clock, CheckCircle, Headphones, Zap } from 'lucide-react';
 
 const TEAMVIEWER_LINK = "https://get.teamviewer.com/mp9scqx";
 
@@ -6,65 +6,72 @@ const BENEFITS = [
   {
     icon: Clock,
     title: "Intervention immédiate",
-    description: "Pas besoin d'attendre, notre technicien se connecte en quelques secondes"
+    description: "Notre technicien se connecte en quelques secondes"
   },
   {
     icon: Shield,
     title: "100% sécurisé",
-    description: "Connexion cryptée, vous gardez le contrôle et voyez tout ce qui se passe"
+    description: "Connexion cryptée, vous gardez le contrôle total"
   },
   {
     icon: Headphones,
     title: "Accompagnement vocal",
-    description: "Notre technicien vous guide par téléphone pendant l'intervention"
+    description: "On vous guide par téléphone pendant l'intervention"
   }
 ];
 
 export default function TeleAssistance() {
   return (
-    <section id="teleassistance" className="py-16 md:py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-600" data-testid="teleassistance-section">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="teleassistance" className="py-20 md:py-28 bg-tech-dark relative overflow-hidden" data-testid="teleassistance-section">
+      {/* Background effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-tech-blue/30 via-tech-dark to-tech-cyan/10"></div>
+      <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-tech-gold via-tech-cyan to-tech-gold"></div>
+      
+      {/* Circuit pattern */}
+      <div className="absolute inset-0 circuit-bg opacity-50"></div>
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="text-white">
-            <span className="inline-flex items-center space-x-2 bg-white/20 text-white px-4 py-2 rounded-full mb-6">
+          <div>
+            <span className="inline-flex items-center space-x-2 bg-tech-cyan/20 text-tech-cyan px-4 py-2 rounded-full mb-6 glow-border-cyan">
               <Monitor className="w-4 h-4" />
-              <span className="font-body text-sm font-medium">Nouveau service</span>
+              <span className="font-heading font-semibold text-sm uppercase tracking-widest">Nouveau</span>
             </span>
             
-            <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl mb-6 leading-tight">
+            <h2 className="font-heading font-black text-3xl md:text-4xl lg:text-5xl text-white mb-6 leading-tight">
               Télé-assistance : <br/>
-              <span className="text-cyan-300">On répare votre PC à distance !</span>
+              <span className="text-tech-cyan text-glow">On répare votre PC à distance !</span>
             </h2>
             
-            <p className="font-body text-lg text-white/90 mb-8 leading-relaxed">
-              Pas besoin de vous déplacer ni d'attendre un technicien. Grâce à notre service de 
-              <strong> prise en main à distance</strong>, nous pouvons résoudre la plupart de vos 
-              problèmes informatiques directement depuis votre domicile, en quelques minutes.
+            <p className="font-body text-lg text-gray-300 mb-8 leading-relaxed">
+              Pas besoin de vous déplacer. Grâce à notre 
+              <strong className="text-tech-gold"> prise en main à distance</strong>, nous résolvons 
+              vos problèmes informatiques directement depuis chez vous.
             </p>
 
             {/* How it works */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-8 border border-white/20">
-              <h3 className="font-heading font-bold text-xl mb-4 flex items-center">
-                <span className="w-8 h-8 bg-cyan-400 rounded-full flex items-center justify-center mr-3 text-blue-900 font-bold text-sm">?</span>
+            <div className="tech-card rounded-xl p-6 mb-8">
+              <h3 className="font-heading font-bold text-xl mb-4 flex items-center text-white">
+                <span className="w-8 h-8 bg-tech-gold rounded-full flex items-center justify-center mr-3 text-tech-dark font-bold text-sm">?</span>
                 Comment ça marche ?
               </h3>
-              <ol className="space-y-3 font-body text-white/90">
+              <ol className="space-y-3 font-body text-gray-300">
                 <li className="flex items-start">
-                  <span className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-3 flex-shrink-0 text-sm font-bold">1</span>
-                  <span>Appelez-nous au <strong>01 40 88 30 30</strong></span>
+                  <span className="w-6 h-6 bg-tech-cyan/20 rounded-full flex items-center justify-center mr-3 flex-shrink-0 text-sm font-bold text-tech-cyan">1</span>
+                  <span>Appelez-nous au <strong className="text-tech-gold">01 40 88 30 30</strong></span>
                 </li>
                 <li className="flex items-start">
-                  <span className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-3 flex-shrink-0 text-sm font-bold">2</span>
-                  <span>Téléchargez notre module de connexion sécurisée</span>
+                  <span className="w-6 h-6 bg-tech-cyan/20 rounded-full flex items-center justify-center mr-3 flex-shrink-0 text-sm font-bold text-tech-cyan">2</span>
+                  <span>Téléchargez notre module de connexion</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-3 flex-shrink-0 text-sm font-bold">3</span>
-                  <span>Communiquez le code affiché à notre technicien</span>
+                  <span className="w-6 h-6 bg-tech-cyan/20 rounded-full flex items-center justify-center mr-3 flex-shrink-0 text-sm font-bold text-tech-cyan">3</span>
+                  <span>Communiquez le code à notre technicien</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-3 flex-shrink-0 text-sm font-bold">4</span>
-                  <span>C'est tout ! On s'occupe du reste sous vos yeux</span>
+                  <span className="w-6 h-6 bg-tech-cyan/20 rounded-full flex items-center justify-center mr-3 flex-shrink-0 text-sm font-bold text-tech-cyan">4</span>
+                  <span>C'est tout ! On s'occupe du reste</span>
                 </li>
               </ol>
             </div>
@@ -74,57 +81,55 @@ export default function TeleAssistance() {
               href={TEAMVIEWER_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center space-x-3 bg-white text-blue-700 hover:bg-cyan-100 px-8 py-4 rounded-full font-heading font-bold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
+              className="btn-tech inline-flex items-center space-x-3 text-lg"
               data-testid="teamviewer-download"
             >
               <Download className="w-6 h-6" />
-              <span>Télécharger le module de connexion</span>
+              <span>Télécharger le module</span>
             </a>
             
-            <p className="mt-4 font-body text-sm text-white/70">
+            <p className="mt-4 font-body text-sm text-gray-500">
               Module sécurisé TeamViewer - Téléchargement gratuit
             </p>
           </div>
 
-          {/* Right - Benefits + Visual */}
+          {/* Right - Visual + Benefits */}
           <div>
-            {/* Visual illustration */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 mb-8">
-              <div className="flex items-center justify-center space-x-8">
+            {/* Visual */}
+            <div className="tech-card rounded-2xl p-8 mb-8">
+              <div className="flex items-center justify-center space-x-6">
                 {/* User PC */}
                 <div className="text-center">
-                  <div className="w-24 h-20 bg-gray-700 rounded-lg flex items-center justify-center mb-2 mx-auto border-2 border-gray-500">
+                  <div className="w-20 h-16 bg-tech-dark rounded-lg flex items-center justify-center mb-2 mx-auto border-2 border-tech-gold">
                     <span className="text-3xl">😟</span>
                   </div>
-                  <p className="text-white/80 text-sm font-body">Votre PC</p>
+                  <p className="text-gray-400 text-sm font-body">Votre PC</p>
                 </div>
                 
-                {/* Connection animation */}
+                {/* Connection */}
                 <div className="flex flex-col items-center">
                   <div className="flex items-center space-x-1">
-                    <div className="w-3 h-3 bg-cyan-400 rounded-full animate-ping"></div>
-                    <div className="w-8 h-0.5 bg-gradient-to-r from-cyan-400 to-green-400"></div>
-                    <div className="w-3 h-3 bg-green-400 rounded-full animate-ping animation-delay-200"></div>
-                    <div className="w-8 h-0.5 bg-gradient-to-r from-green-400 to-cyan-400"></div>
-                    <div className="w-3 h-3 bg-cyan-400 rounded-full animate-ping animation-delay-400"></div>
+                    <div className="w-3 h-3 bg-tech-cyan rounded-full animate-ping"></div>
+                    <div className="w-12 h-0.5 bg-gradient-to-r from-tech-cyan to-tech-gold"></div>
+                    <div className="w-3 h-3 bg-tech-gold rounded-full animate-ping" style={{ animationDelay: '0.5s' }}></div>
                   </div>
-                  <p className="text-cyan-300 text-xs font-body mt-2">Connexion sécurisée</p>
+                  <p className="text-tech-cyan text-xs font-body mt-2">Connexion sécurisée</p>
                 </div>
                 
-                {/* Tech PC */}
+                {/* Tech */}
                 <div className="text-center">
-                  <div className="w-24 h-20 bg-blue-500 rounded-lg flex items-center justify-center mb-2 mx-auto border-2 border-cyan-400">
+                  <div className="w-20 h-16 bg-tech-cyan/20 rounded-lg flex items-center justify-center mb-2 mx-auto border-2 border-tech-cyan">
                     <span className="text-3xl">👨‍💻</span>
                   </div>
-                  <p className="text-white/80 text-sm font-body">Notre expert</p>
+                  <p className="text-gray-400 text-sm font-body">Notre expert</p>
                 </div>
               </div>
               
               {/* Result */}
               <div className="mt-6 text-center">
-                <div className="inline-flex items-center space-x-2 bg-green-500/20 text-green-300 px-4 py-2 rounded-full">
+                <div className="inline-flex items-center space-x-2 bg-green-500/20 text-green-400 px-4 py-2 rounded-full">
                   <CheckCircle className="w-5 h-5" />
-                  <span className="font-heading font-semibold">Problème résolu en quelques minutes !</span>
+                  <span className="font-heading font-semibold text-sm">Problème résolu !</span>
                 </div>
               </div>
             </div>
@@ -136,14 +141,14 @@ export default function TeleAssistance() {
                 return (
                   <div 
                     key={index} 
-                    className="flex items-start space-x-4 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:bg-white/20 transition-all"
+                    className="flex items-start space-x-4 tech-card rounded-xl p-4"
                   >
-                    <div className="w-12 h-12 bg-cyan-400/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-6 h-6 text-cyan-300" />
+                    <div className="w-12 h-12 bg-tech-gold/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-6 h-6 text-tech-gold" />
                     </div>
                     <div>
                       <h4 className="font-heading font-bold text-white mb-1">{benefit.title}</h4>
-                      <p className="font-body text-sm text-white/70">{benefit.description}</p>
+                      <p className="font-body text-sm text-gray-400">{benefit.description}</p>
                     </div>
                   </div>
                 );
