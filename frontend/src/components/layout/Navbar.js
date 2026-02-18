@@ -82,16 +82,17 @@ export default function Navbar() {
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.name}
-                  to={link.path}
+                  to={link.hash ? link.path : link.path}
+                  onClick={(e) => handleNavClick(e, link)}
                   className={`relative px-5 py-2 font-heading font-semibold text-sm uppercase tracking-wide transition-all duration-300 rounded-md group ${
-                    isActive(link.path) 
+                    isActive(link.path) && !link.hash
                       ? 'bg-blue-600 text-white shadow-md' 
                       : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'
                   }`}
                   data-testid={`nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
                 >
                   <span className="relative z-10">{link.name}</span>
-                  {!isActive(link.path) && (
+                  {!(isActive(link.path) && !link.hash) && (
                     <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-4/5 group-hover:left-[10%]"></span>
                   )}
                 </Link>
