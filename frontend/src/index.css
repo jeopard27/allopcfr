@@ -180,6 +180,10 @@ html {
     border: none;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(245, 166, 35, 0.4);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-tech:hover {
@@ -194,6 +198,10 @@ html {
     padding: 12px 32px;
     border-radius: 50px;
     transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-tech-outline:hover {
