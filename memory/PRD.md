@@ -18,13 +18,22 @@ Site vitrine optimisé SEO pour Allo PC Dépannage, entreprise de dépannage inf
 ### MVP v4 - 18 Fév 2026
 - Thème futuriste sombre appliqué à tout le site (accueil, contact, localités)
 - Page Contact refaite avec thème sombre
-- Navbar améliorée (alignement, séparateur, ligne dorée active)
+- Navbar améliorée
 - FAQ supprimée partout
 - Bandeau Hero avec photo pleine largeur + éclair visible + effet de débordement
-- "Demander un devis" supprimé partout (Hero, CTA, LocationPage)
-- Pages localité converties au thème sombre (couleurs tech-dark, tech-cyan, tech-gold)
-- Bug fix: variable CSS `--tech-orange` ajoutée (bouton footer invisible corrigé)
-- **Export HTML statique** : fichier unique autonome créé
+- "Demander un devis" supprimé partout
+- Pages localité converties au thème sombre
+- Bug fix: variable CSS `--tech-orange` ajoutée (bouton footer corrigé)
+- Export HTML statique autonome créé
+
+### SEO - 18 Fév 2026
+- **Meta tags** : title, description, keywords optimisés sur toutes les pages
+- **Schema.org JSON-LD** : LocalBusiness avec adresse, téléphone, 6 services, avis, zones
+- **Open Graph** : og:title, og:description, og:locale pour partage social
+- **Mots-clés SEO** : dépannage informatique, dépannage PC, dépannage Mac, réparation ordinateur, technicien informatique Paris, etc. (20+ mots-clés)
+- **Canonical URL** : allopcdepannage.fr
+- **robots** : index, follow
+- Pages localité avec title/description SEO uniques par ville
 
 ## Pages du site
 - `/` - Accueil
@@ -37,16 +46,6 @@ Site vitrine optimisé SEO pour Allo PC Dépannage, entreprise de dépannage inf
 - `/index-static.html` - Version HTML statique autonome
 
 ## Backlog
-- P1: Schema.org / JSON-LD pour SEO local
 - P2: Backend formulaire contact → MongoDB/email
 - P2: Blog SEO
 - P3: Prise de RDV en ligne
-
-## Key Files
-- `frontend/public/index-static.html` - HTML statique autonome
-- `frontend/public/banner-hero.png` - Image du bandeau
-- `frontend/src/components/sections/Hero.js` - Bandeau avec photo
-- `frontend/src/components/layout/Navbar.js` - Navigation
-- `frontend/src/pages/Contact.js` - Page contact thème sombre
-- `frontend/src/pages/LocationPage.js` - Pages SEO localité (thème sombre)
-- `frontend/src/index.css` - Styles globaux + animations
