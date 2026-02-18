@@ -17,12 +17,14 @@ module.exports = {
                         sm: 'calc(var(--radius) - 4px)'
                 },
                 colors: {
-                        'brand-blue': '#1a5fb4',
-                        'brand-blue-dark': '#0d3b7a',
-                        'brand-blue-light': '#3584e4',
-                        'brand-navy': '#0a2540',
-                        'brand-sky': '#e8f4fc',
-                        'brand-accent': '#2563eb',
+                        // New tech theme colors
+                        'tech-dark': '#0a1628',
+                        'tech-blue': '#1a3a5c',
+                        'tech-blue-light': '#2563eb',
+                        'tech-cyan': '#00d4ff',
+                        'tech-gold': '#f5a623',
+                        'tech-orange': '#e8951d',
+                        'tech-glow': '#4facfe',
                         background: 'hsl(var(--background))',
                         foreground: 'hsl(var(--foreground))',
                         card: {
@@ -56,43 +58,31 @@ module.exports = {
                         border: 'hsl(var(--border))',
                         input: 'hsl(var(--input))',
                         ring: 'hsl(var(--ring))',
-                        chart: {
-                                '1': 'hsl(var(--chart-1))',
-                                '2': 'hsl(var(--chart-2))',
-                                '3': 'hsl(var(--chart-3))',
-                                '4': 'hsl(var(--chart-4))',
-                                '5': 'hsl(var(--chart-5))'
-                        }
                 },
                 keyframes: {
-                        'accordion-down': {
-                                from: { height: '0' },
-                                to: { height: 'var(--radix-accordion-content-height)' }
+                        'glow-pulse': {
+                                '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+                                '50%': { opacity: '1', transform: 'scale(1.1)' }
                         },
-                        'accordion-up': {
-                                from: { height: 'var(--radix-accordion-content-height)' },
-                                to: { height: '0' }
-                        },
-                        'wiggle': {
-                                '0%, 100%': { transform: 'rotate(0deg)' },
-                                '25%': { transform: 'rotate(-10deg)' },
-                                '75%': { transform: 'rotate(10deg)' }
+                        'circuit-flow': {
+                                '0%': { backgroundPosition: '0% 0%' },
+                                '100%': { backgroundPosition: '100% 100%' }
                         },
                         'float': {
                                 '0%, 100%': { transform: 'translateY(0px)' },
-                                '50%': { transform: 'translateY(-10px)' }
+                                '50%': { transform: 'translateY(-15px)' }
                         },
-                        'pulse-ring': {
-                                '0%': { transform: 'scale(1)', opacity: '1' },
-                                '100%': { transform: 'scale(1.5)', opacity: '0' }
+                        'particle': {
+                                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                                '50%': { opacity: '1' },
+                                '100%': { opacity: '0', transform: 'translateY(-20px)' }
                         }
                 },
                 animation: {
-                        'accordion-down': 'accordion-down 0.2s ease-out',
-                        'accordion-up': 'accordion-up 0.2s ease-out',
-                        'wiggle': 'wiggle 0.5s ease-in-out infinite',
-                        'float': 'float 3s ease-in-out infinite',
-                        'pulse-ring': 'pulse-ring 1.5s ease-out infinite'
+                        'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
+                        'circuit-flow': 'circuit-flow 20s linear infinite',
+                        'float': 'float 4s ease-in-out infinite',
+                        'particle': 'particle 3s ease-in-out infinite'
                 }
         }
   },
