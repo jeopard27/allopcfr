@@ -5,7 +5,7 @@ import json
 
 class AllopcdepannageAPITester:
     def __init__(self):
-        self.base_url = "https://wordpress-builder-17.preview.emergentagent.com/api"
+        self.base_url = "https://allo-pc-preview.preview.emergentagent.com/api"
         self.tests_run = 0
         self.tests_passed = 0
         self.errors = []
