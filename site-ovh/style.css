@@ -254,7 +254,7 @@ textarea.form-input { resize: none; }
 .nbh { display: inline-flex; align-items: center; gap: .5rem; padding: .5rem 1rem; border-radius: 8px; font-size: .9rem; color: #d1d5db; }
 
 /* ========== MOBILE RESPONSIVE ========== */
-@media(max-width:767px) {
+@media(max-width:1023px) {
   body { padding-bottom: 56px; }
   .section { padding: 3rem 0; }
   .section-header { margin-bottom: 2rem; }
@@ -289,6 +289,10 @@ textarea.form-input { resize: none; }
 
   /* Contact page mobile */
   .contact-layout { grid-template-columns: 1fr !important; }
+
+  /* Grid adjustments for tablets */
+  .g3 { grid-template-columns: 1fr 1fr; }
+  .g5 { grid-template-columns: 1fr 1fr; }
 }
 
 @media(max-width:480px) {
