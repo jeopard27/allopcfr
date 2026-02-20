@@ -24,6 +24,7 @@
   <symbol id="ic-msg" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
   <symbol id="ic-chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></symbol>
   <symbol id="ic-menu" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
+  <symbol id="ic-x" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
 </svg>
 
 <header class="header">
@@ -35,7 +36,8 @@
   </div>
   <nav class="nav">
     <div class="container nav-in">
-      <div class="nav-links">
+      <!-- Desktop nav -->
+      <div class="nav-links desktop-only">
         <a href="index.php" class="nav-a<?php if(basename($_SERVER['PHP_SELF'])=='index.php') echo ' active'; ?>">Accueil</a>
         <a href="index.php#services" class="nav-a">Services</a>
         <a href="index.php#teleassistance" class="nav-a">Assistance informatique</a>
@@ -52,13 +54,21 @@
           </div>
         </div>
       </div>
-      <div class="nav-phone-wrap"><a href="tel:0140883030" class="nav-phone"><svg class="i-s"><use href="#ic-phone"/></svg> 01 40 88 30 30</a></div>
-      <div class="mob-flex" style="display:none">
+      <div class="desktop-only"><a href="tel:0140883030" class="nav-phone"><svg class="i-s"><use href="#ic-phone"/></svg> 01 40 88 30 30</a></div>
+
+      <!-- Mobile nav toggle -->
+      <div class="mobile-only" style="display:flex;align-items:center;justify-content:space-between;width:100%">
         <span style="font-family:'Montserrat';font-weight:700;font-size:.9rem">Menu</span>
-        <button class="mob-btn" onclick="document.getElementById('mm').classList.toggle('open')"><svg><use href="#ic-menu"/></svg></button>
+        <label for="menu-toggle" style="cursor:pointer;padding:.5rem"><svg style="width:24px;height:24px;stroke:var(--cyan);fill:none;stroke-width:2"><use href="#ic-menu"/></svg></label>
       </div>
     </div>
-    <div id="mm" class="mob-menu">
+
+    <!-- Mobile menu (CSS checkbox trick) -->
+    <input type="checkbox" id="menu-toggle" style="display:none">
+    <div class="mob-panel">
+      <div style="display:flex;justify-content:flex-end;padding:.5rem 1rem">
+        <label for="menu-toggle" style="cursor:pointer;padding:.5rem"><svg style="width:24px;height:24px;stroke:var(--cyan);fill:none;stroke-width:2"><use href="#ic-x"/></svg></label>
+      </div>
       <a href="index.php">Accueil</a>
       <a href="index.php#services">Services</a>
       <a href="index.php#teleassistance">Assistance informatique</a>
@@ -69,8 +79,9 @@
       <a href="depannage-pc-paris-8.php">Paris 8ème</a>
       <a href="depannage-pc-neuilly-sur-seine.php">Neuilly-sur-Seine</a>
       <a href="depannage-informatique-levallois-perret.php">Levallois-Perret</a>
-      <a href="tel:0140883030" class="btn" style="width:100%;margin-top:1rem"><svg class="i"><use href="#ic-phone"/></svg> 01 40 88 30 30</a>
+      <a href="tel:0140883030" class="btn" style="width:calc(100% - 2rem);margin:1rem">
+        <svg class="i"><use href="#ic-phone"/></svg> 01 40 88 30 30
+      </a>
     </div>
   </nav>
 </header>
-<script>var m=document.querySelector('.mob-flex');if(window.innerWidth<768)m.style.display='flex';window.addEventListener('resize',function(){m.style.display=window.innerWidth<768?'flex':'none'});</script>
