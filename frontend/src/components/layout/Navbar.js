@@ -59,10 +59,10 @@ export default function Navbar() {
             <div className="w-10 h-10 rounded-full bg-gradient-to-br from-tech-gold to-tech-orange flex items-center justify-center shadow-lg shadow-tech-gold/30">
               <Zap className="w-6 h-6 text-tech-dark" />
             </div>
-            <span className="font-heading font-black text-2xl md:text-3xl tracking-tight">
+            <span className="font-heading font-black text-xl sm:text-2xl md:text-3xl tracking-tight">
               <span className="text-white">ALLO</span>
               <span className="text-tech-cyan ml-1">PC</span>
-              <span className="text-tech-cyan ml-2 font-light tracking-wide">DÉPANNAGE</span>
+              <span className="text-tech-cyan ml-1 sm:ml-2 font-light tracking-wide text-base sm:text-2xl md:text-3xl">DÉPANNAGE</span>
             </span>
           </Link>
         </div>
