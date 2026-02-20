@@ -18,7 +18,7 @@ site-ovh/
 ├── footer.php             ← Pied de page + barre d'appel mobile
 ├── seo-head.php           ← Meta tags SEO + JSON-LD + favicon
 ├── location-template.php  ← Template pages localité
-├── style.css              ← CSS unique
+├── style.css              ← CSS unique (breakpoint mobile: 1024px)
 ├── 5 pages localité       ← Paris 16/17/8, Neuilly, Levallois
 ├── banner-hero.png        ← Bandeau principal
 └── favicon.png            ← Icône navigateur
@@ -27,9 +27,10 @@ site-ovh/
 ## Fonctionnalités implémentées
 - Navigation desktop complète avec dropdown localités
 - Menu mobile CSS pur (checkbox toggle) - sans JavaScript
+- Breakpoint desktop/mobile à 1024px (couvre tablettes)
 - Formulaire de contact PHP (envoi email via mail())
 - Pages SEO par localité avec contenu unique
-- Barre d'appel fixe mobile
+- Barre d'appel fixe mobile (cachée >1024px)
 - Design responsive complet (mobile, tablette, desktop)
 - Favicon sur toutes les pages
 
@@ -43,8 +44,8 @@ site-ovh/
 
 ## Complété
 - [x] Site PHP complet et fonctionnel
-- [x] Menu mobile CSS pur fonctionnel
-- [x] Responsive design validé (mobile + desktop)
+- [x] Menu mobile CSS pur fonctionnel (breakpoint 1024px)
+- [x] Responsive design validé (mobile 375px, tablette 768px, desktop 1280px)
 - [x] Favicon intégré
 - [x] SEO optimisé (meta tags, JSON-LD, Open Graph)
 - [x] .htaccess (HTTPS, URL rewriting, cache, sécurité)
