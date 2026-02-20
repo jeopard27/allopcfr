@@ -36,11 +36,11 @@
         <span><span style="color:#fff">ALLO</span><span style="color:var(--cyan);margin-left:4px">PC</span><span style="color:var(--cyan);margin-left:8px;font-weight:300;letter-spacing:.05em">DÉPANNAGE</span></span>
       </a>
 
-      <!-- Desktop nav links -->
+      <!-- Desktop nav links — hidden on mobile via inline style + CSS -->
       <div class="nav-links" id="desktop-nav">
         <a href="index.php" class="nav-a<?php if(basename($_SERVER['PHP_SELF'] ?? '')=='index.php') echo ' active'; ?>">Accueil</a>
         <a href="index.php#services" class="nav-a">Services</a>
-        <a href="index.php#teleassistance" class="nav-a">Assistance informatique</a>
+        <a href="index.php#teleassistance" class="nav-a">Assistance</a>
         <a href="contact.php" class="nav-a<?php if(basename($_SERVER['PHP_SELF'] ?? '')=='contact.php') echo ' active'; ?>">Contact</a>
         <div class="nav-sep"></div>
         <div class="drop">
@@ -55,19 +55,21 @@
         </div>
       </div>
 
-      <!-- Desktop phone -->
-      <div id="desktop-phone"><a href="tel:0140883030" class="nav-phone"><svg class="i-s"><use href="#ic-phone"/></svg> 01 40 88 30 30</a></div>
+      <!-- Desktop phone — white-space:nowrap to prevent wrapping -->
+      <div id="desktop-phone">
+        <a href="tel:0140883030" class="nav-phone" style="white-space:nowrap"><svg class="i-s"><use href="#ic-phone"/></svg> 01 40 88 30 30</a>
+      </div>
 
-      <!-- Mobile hamburger -->
-      <div id="mob-toggle">
+      <!-- Mobile hamburger — HIDDEN by default via inline style -->
+      <div id="mob-toggle" style="display:none">
         <button onclick="document.getElementById('mob-panel').style.display='block'" style="background:none;border:none;cursor:pointer;padding:.5rem">
           <svg style="width:28px;height:28px;stroke:var(--cyan);fill:none;stroke-width:2"><use href="#ic-menu"/></svg>
         </button>
       </div>
     </div>
 
-    <!-- Mobile menu panel -->
-    <div id="mob-panel" class="mob-panel">
+    <!-- Mobile menu panel — HIDDEN by default via inline style -->
+    <div id="mob-panel" class="mob-panel" style="display:none">
       <div style="display:flex;justify-content:flex-end;padding:.5rem 1rem">
         <button onclick="document.getElementById('mob-panel').style.display='none'" style="background:none;border:none;cursor:pointer;padding:.5rem">
           <svg style="width:24px;height:24px;stroke:var(--cyan);fill:none;stroke-width:2"><use href="#ic-x"/></svg>
@@ -83,9 +85,33 @@
       <a href="depannage-pc-paris-8.php">Paris 8ème</a>
       <a href="depannage-pc-neuilly-sur-seine.php">Neuilly-sur-Seine</a>
       <a href="depannage-informatique-levallois-perret.php">Levallois-Perret</a>
-      <a href="tel:0140883030" class="btn" style="width:calc(100% - 2rem);margin:1rem">
+      <a href="tel:0140883030" class="btn" style="width:calc(100% - 2rem);margin:1rem;white-space:nowrap">
         <svg class="i"><use href="#ic-phone"/></svg> 01 40 88 30 30
       </a>
     </div>
   </nav>
 </header>
+
+<!-- JS pour afficher/masquer le menu mobile selon la taille d'écran -->
+<script>
+(function(){
+  var mt = document.getElementById('mob-toggle');
+  var dn = document.getElementById('desktop-nav');
+  var dp = document.getElementById('desktop-phone');
+  var mp = document.getElementById('mob-panel');
+  function check(){
+    if(window.innerWidth < 1024){
+      mt.style.display = 'flex';
+      dn.style.display = 'none';
+      dp.style.display = 'none';
+    } else {
+      mt.style.display = 'none';
+      dn.style.display = 'flex';
+      dp.style.display = 'block';
+      mp.style.display = 'none';
+    }
+  }
+  check();
+  window.addEventListener('resize', check);
+})();
+</script>
