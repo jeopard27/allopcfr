@@ -279,6 +279,9 @@ textarea.form-input { resize: none; }
   .ft-grid { gap: 2rem; }
   .ft-bot { flex-direction: column; text-align: center; }
 
+  /* Text overflow protection */
+  .text-glow, .text-glow-g { word-wrap: break-word; overflow-wrap: break-word; }
+
   /* Contact page mobile */
   .contact-layout { grid-template-columns: 1fr !important; }
 }
