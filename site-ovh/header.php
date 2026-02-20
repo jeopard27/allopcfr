@@ -37,7 +37,7 @@
   <nav class="nav">
     <div class="container nav-in">
       <!-- Desktop nav -->
-      <div class="nav-links desktop-only">
+      <div class="nav-links" id="desktop-nav">
         <a href="index.php" class="nav-a<?php if(basename($_SERVER['PHP_SELF'])=='index.php') echo ' active'; ?>">Accueil</a>
         <a href="index.php#services" class="nav-a">Services</a>
         <a href="index.php#teleassistance" class="nav-a">Assistance informatique</a>
@@ -54,20 +54,23 @@
           </div>
         </div>
       </div>
-      <div class="desktop-only"><a href="tel:0140883030" class="nav-phone"><svg class="i-s"><use href="#ic-phone"/></svg> 01 40 88 30 30</a></div>
+      <div id="desktop-phone"><a href="tel:0140883030" class="nav-phone"><svg class="i-s"><use href="#ic-phone"/></svg> 01 40 88 30 30</a></div>
 
-      <!-- Mobile nav toggle -->
-      <div class="mobile-only" style="display:flex;align-items:center;justify-content:space-between;width:100%">
+      <!-- Mobile hamburger button -->
+      <div id="mob-toggle">
         <span style="font-family:'Montserrat';font-weight:700;font-size:.9rem">Menu</span>
-        <label for="menu-toggle" style="cursor:pointer;padding:.5rem"><svg style="width:24px;height:24px;stroke:var(--cyan);fill:none;stroke-width:2"><use href="#ic-menu"/></svg></label>
+        <button onclick="document.getElementById('mob-panel').style.display='block'" style="background:none;border:none;cursor:pointer;padding:.5rem">
+          <svg style="width:24px;height:24px;stroke:var(--cyan);fill:none;stroke-width:2"><use href="#ic-menu"/></svg>
+        </button>
       </div>
     </div>
 
-    <!-- Mobile menu (CSS checkbox trick) -->
-    <input type="checkbox" id="menu-toggle" style="display:none">
-    <div class="mob-panel">
+    <!-- Mobile menu panel -->
+    <div id="mob-panel" class="mob-panel">
       <div style="display:flex;justify-content:flex-end;padding:.5rem 1rem">
-        <label for="menu-toggle" style="cursor:pointer;padding:.5rem"><svg style="width:24px;height:24px;stroke:var(--cyan);fill:none;stroke-width:2"><use href="#ic-x"/></svg></label>
+        <button onclick="document.getElementById('mob-panel').style.display='none'" style="background:none;border:none;cursor:pointer;padding:.5rem">
+          <svg style="width:24px;height:24px;stroke:var(--cyan);fill:none;stroke-width:2"><use href="#ic-x"/></svg>
+        </button>
       </div>
       <a href="index.php">Accueil</a>
       <a href="index.php#services">Services</a>
