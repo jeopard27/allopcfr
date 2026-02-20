@@ -227,7 +227,7 @@ ul { list-style: none; }
 /* MOBILE CALL BAR */
 .mcb { position: fixed; bottom: 0; left: 0; right: 0; z-index: 50; background: linear-gradient(135deg,var(--gold),var(--orange)); text-align: center; }
 .mcb a { display: flex; align-items: center; justify-content: center; gap: .75rem; color: var(--dark); font-family: 'Montserrat'; font-weight: 700; font-size: 1.1rem; padding: 1rem; }
-@media(min-width:768px) { .mcb { display: none; } }
+@media(min-width:1024px) { .mcb { display: none; } }
 
 /* CONTACT FORM */
 .form-group { margin-bottom: 1.25rem; }
