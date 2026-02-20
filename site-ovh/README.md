@@ -1,26 +1,27 @@
 # Allo PC Dépannage - Site PHP pour OVH
 
-## Fichiers à uploader sur OVH
+## Déploiement sur OVH
 
-Uploadez TOUT le contenu du dossier `site-ovh/` à la racine de votre hébergement OVH (dossier `www/`).
+Uploadez **TOUT** le contenu de ce dossier à la racine de votre hébergement OVH (dossier `www/`).
 
-### Structure :
+### Structure des fichiers :
 ```
 www/
-├── .htaccess              ← Réécriture URL + cache + sécurité
-├── index.php              ← Page d'accueil
-├── contact.php            ← Page contact (formulaire PHP avec envoi email)
-├── depannage-pc-paris-16.php
-├── depannage-pc-paris-17.php
-├── depannage-pc-paris-8.php
-├── depannage-pc-neuilly-sur-seine.php
-├── depannage-informatique-levallois-perret.php
-├── header.php             ← En-tête partagé (navigation)
-├── footer.php             ← Pied de page partagé
-├── seo-head.php           ← Balises SEO/Schema.org partagées
-├── location-template.php  ← Template des pages localité
-├── style.css              ← Feuille de styles
-└── banner-hero.png        ← Image du bandeau
+├── .htaccess                                    ← Réécriture URL + HTTPS + cache + sécurité
+├── index.php                                    ← Page d'accueil
+├── contact.php                                  ← Page contact (formulaire + envoi email)
+├── depannage-pc-paris-16.php                    ← Paris 16ème
+├── depannage-pc-paris-17.php                    ← Paris 17ème
+├── depannage-pc-paris-8.php                     ← Paris 8ème
+├── depannage-pc-neuilly-sur-seine.php           ← Neuilly-sur-Seine
+├── depannage-informatique-levallois-perret.php  ← Levallois-Perret
+├── header.php                                   ← En-tête + navigation (include)
+├── footer.php                                   ← Pied de page (include)
+├── seo-head.php                                 ← Balises SEO / Schema.org (include)
+├── location-template.php                        ← Template des pages localité
+├── style.css                                    ← Feuille de styles unique
+├── banner-hero.png                              ← Image du bandeau principal
+└── favicon.png                                  ← Icône de l'onglet navigateur
 ```
 
 ## URLs du site (avec .htaccess)
@@ -33,12 +34,18 @@ www/
 - `allopcdepannage.fr/depannage-informatique-levallois-perret` → Levallois
 
 ## Formulaire de contact
-Le formulaire envoie un email à `contact@allopcdepannage.com` via la fonction `mail()` de PHP.
-Sur OVH mutualisé, ça fonctionne nativement.
+Le formulaire envoie un email à `contact@allopcdepannage.com` via la fonction PHP `mail()`.
+Sur OVH mutualisé, cela fonctionne nativement sans configuration supplémentaire.
 
 ## SEO inclus
 - Meta tags (title, description, keywords) sur chaque page
 - Schema.org JSON-LD (LocalBusiness) sur chaque page
 - Open Graph pour le partage social
-- URLs propres via .htaccess
+- URLs propres via .htaccess (suppression du .php)
+- Redirect HTTPS automatique
 - Balises canonical
+- Favicon
+
+## Menu mobile
+Le menu mobile utilise une technique CSS pure (checkbox toggle) sans JavaScript.
+Cliquez sur l'icône ☰ pour ouvrir/fermer le menu de navigation.
