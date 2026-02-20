@@ -28,20 +28,20 @@
 </svg>
 
 <header class="header">
-  <div class="logo-bar">
-    <a href="index.php" class="logo">
-      <span class="logo-icon"><svg class="i" style="stroke:var(--dark);stroke-width:2.5"><use href="#ic-zap"/></svg></span>
-      <span><span style="color:#fff">ALLO</span><span style="color:var(--cyan);margin-left:4px">PC</span><span style="color:var(--cyan);margin-left:8px;font-weight:300;letter-spacing:.05em">DÉPANNAGE</span></span>
-    </a>
-  </div>
   <nav class="nav">
     <div class="container nav-in">
-      <!-- Desktop nav -->
+      <!-- Logo -->
+      <a href="index.php" class="logo">
+        <span class="logo-icon"><svg class="i" style="stroke:var(--dark);stroke-width:2.5"><use href="#ic-zap"/></svg></span>
+        <span><span style="color:#fff">ALLO</span><span style="color:var(--cyan);margin-left:4px">PC</span><span style="color:var(--cyan);margin-left:8px;font-weight:300;letter-spacing:.05em">DÉPANNAGE</span></span>
+      </a>
+
+      <!-- Desktop nav links -->
       <div class="nav-links" id="desktop-nav">
-        <a href="index.php" class="nav-a<?php if(basename($_SERVER['PHP_SELF'])=='index.php') echo ' active'; ?>">Accueil</a>
+        <a href="index.php" class="nav-a<?php if(basename($_SERVER['PHP_SELF'] ?? '')=='index.php') echo ' active'; ?>">Accueil</a>
         <a href="index.php#services" class="nav-a">Services</a>
         <a href="index.php#teleassistance" class="nav-a">Assistance informatique</a>
-        <a href="contact.php" class="nav-a<?php if(basename($_SERVER['PHP_SELF'])=='contact.php') echo ' active'; ?>">Contact</a>
+        <a href="contact.php" class="nav-a<?php if(basename($_SERVER['PHP_SELF'] ?? '')=='contact.php') echo ' active'; ?>">Contact</a>
         <div class="nav-sep"></div>
         <div class="drop">
           <button class="drop-btn"><svg class="i-s" style="stroke:var(--gold)"><use href="#ic-pin"/></svg> Localités <svg class="i-s"><use href="#ic-chev"/></svg></button>
@@ -54,13 +54,14 @@
           </div>
         </div>
       </div>
+
+      <!-- Desktop phone -->
       <div id="desktop-phone"><a href="tel:0140883030" class="nav-phone"><svg class="i-s"><use href="#ic-phone"/></svg> 01 40 88 30 30</a></div>
 
-      <!-- Mobile hamburger button -->
+      <!-- Mobile hamburger -->
       <div id="mob-toggle">
-        <span style="font-family:'Montserrat';font-weight:700;font-size:.9rem">Menu</span>
         <button onclick="document.getElementById('mob-panel').style.display='block'" style="background:none;border:none;cursor:pointer;padding:.5rem">
-          <svg style="width:24px;height:24px;stroke:var(--cyan);fill:none;stroke-width:2"><use href="#ic-menu"/></svg>
+          <svg style="width:28px;height:28px;stroke:var(--cyan);fill:none;stroke-width:2"><use href="#ic-menu"/></svg>
         </button>
       </div>
     </div>
