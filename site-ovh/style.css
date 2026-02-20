@@ -129,18 +129,15 @@ ul { list-style: none; }
 .nav-phone { display: flex; align-items: center; gap: .5rem; background: linear-gradient(135deg,var(--gold),var(--orange)); color: var(--dark); padding: .5rem 1.25rem; border-radius: 50px; font-family: 'Montserrat'; font-weight: 700; font-size: .875rem; transition: all .3s; box-shadow: 0 4px 12px rgba(245,166,35,.3); }
 .nav-phone:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(245,166,35,.5); }
 /* Desktop / Mobile visibility — breakpoint 1024px */
-.desktop-only { display: flex !important; }
-.mobile-only { display: none !important; }
-
-/* Mobile panel — HIDDEN by default */
-.mob-panel { display: none !important; }
+#desktop-nav { display: flex; }
+#desktop-phone { display: block; }
+#mob-toggle { display: none; }
+.mob-panel { display: none; }
 
 @media(max-width:1023px) {
-  .desktop-only { display: none !important; }
-  .mobile-only { display: flex !important; }
-  .nav-phone { display: none !important; }
-  .nav-links { display: none !important; }
-  #menu-toggle:checked ~ .mob-panel { display: block !important; }
+  #desktop-nav { display: none !important; }
+  #desktop-phone { display: none !important; }
+  #mob-toggle { display: flex !important; align-items: center; justify-content: space-between; width: 100%; }
 }
 
 /* Mobile panel styles */
