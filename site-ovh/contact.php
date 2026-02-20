@@ -2,7 +2,7 @@
 $success = false;
 $error = false;
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
     $name = htmlspecialchars(trim($_POST['name'] ?? ''));
     $email = filter_var(trim($_POST['email'] ?? ''), FILTER_VALIDATE_EMAIL);
     $phone = htmlspecialchars(trim($_POST['phone'] ?? ''));
