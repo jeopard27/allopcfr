@@ -21,22 +21,53 @@
   </div>
   <div style="background:var(--dark);position:relative" class="circuit-bg">
     <div class="container hero-content">
-      <div class="hero-box">
-        <h1>Votre PC vous fait des misères <span style="color:var(--cyan)">?</span></h1>
-        <p>Votre machine ne répond plus ? Alors plus une minute à perdre !</p>
-        <div class="card flex items-center gap-4" style="display:inline-flex;padding:.75rem 1rem;border-radius:12px;margin-bottom:1rem">
-          <span class="flex items-center gap-2"><svg class="i" style="stroke:var(--cyan)"><use href="#ic-monitor"/></svg> <strong>PC</strong></span>
-          <span style="color:var(--gold);font-size:1.3rem">+</span>
-          <span class="flex items-center gap-2"><svg class="i" style="stroke:#fff"><use href="#ic-apple"/></svg> <strong>Mac</strong></span>
-          <span style="color:#6b7280">|</span><span style="font-size:.8rem;color:#9ca3af">Fixes & Portables</span>
+      <div class="hero-grid">
+        <div class="hero-box">
+          <h1>Votre PC vous fait des misères <span style="color:var(--cyan)">?</span></h1>
+          <p>Votre machine ne répond plus ? Alors plus une minute à perdre !</p>
+          <div class="card flex items-center gap-4" style="display:inline-flex;padding:.75rem 1rem;border-radius:12px;margin-bottom:1rem">
+            <span class="flex items-center gap-2"><svg class="i" style="stroke:var(--cyan)"><use href="#ic-monitor"/></svg> <strong>PC</strong></span>
+            <span style="color:var(--gold);font-size:1.3rem">+</span>
+            <span class="flex items-center gap-2"><svg class="i" style="stroke:#fff"><use href="#ic-apple"/></svg> <strong>Mac</strong></span>
+            <span style="color:#6b7280">|</span><span style="font-size:.8rem;color:#9ca3af">Fixes & Portables</span>
+          </div>
+          <div class="trust">
+            <span class="trust-b card"><svg class="i-s" style="stroke:var(--gold)"><use href="#ic-clock"/></svg> Intervention &lt; 30 min</span>
+            <span class="trust-b card"><svg class="i-s" style="stroke:#4ade80"><use href="#ic-check"/></svg> 7j/7</span>
+            <span class="trust-b card"><svg class="i-s" style="stroke:var(--cyan)"><use href="#ic-check"/></svg> Depuis 2002</span>
+          </div>
+          <a href="tel:0140883030" class="btn" style="font-size:1.1rem"><svg class="i"><use href="#ic-phone"/></svg> 01 40 88 30 30</a>
+          <p style="margin-top:1.25rem;font-size:.8rem;color:#6b7280">Siège : 235 Bld Pereire, 75017 Paris</p>
         </div>
-        <div class="trust">
-          <span class="trust-b card"><svg class="i-s" style="stroke:var(--gold)"><use href="#ic-clock"/></svg> Intervention &lt; 30 min</span>
-          <span class="trust-b card"><svg class="i-s" style="stroke:#4ade80"><use href="#ic-check"/></svg> 7j/7</span>
-          <span class="trust-b card"><svg class="i-s" style="stroke:var(--cyan)"><use href="#ic-check"/></svg> Depuis 2002</span>
+
+        <!-- Animated PC -->
+        <div class="pc-anim-wrap">
+          <div class="pc-anim-glow"></div>
+          <div class="pc-anim">
+            <!-- Screen -->
+            <div class="pc-screen">
+              <div class="pc-screen-inner">
+                <div class="pc-stage pc-stage-broken"><span class="pc-emoji">😢</span><span class="pc-status pc-status-red">ERREUR SYSTÈME</span><span class="pc-dots"><i></i><i></i><i></i></span></div>
+                <div class="pc-stage pc-stage-repair"><span class="pc-emoji pc-spin">🔧</span><span class="pc-status pc-status-gold">RÉPARATION...</span><span class="pc-progress"><i></i></span></div>
+                <div class="pc-stage pc-stage-fixed"><span class="pc-emoji pc-bounce">😄</span><span class="pc-status pc-status-cyan">RÉPARÉ !</span><span class="pc-sparkles">✨✨✨</span></div>
+              </div>
+              <span class="pc-led"></span>
+            </div>
+            <!-- Stand -->
+            <div class="pc-stand"></div>
+            <div class="pc-base"></div>
+            <!-- Keyboard -->
+            <div class="pc-keyboard"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="pc-label"></div>
+          <!-- Floating badges -->
+          <div class="pc-badge-mac card">
+            <svg class="i-s" style="stroke:#fff;fill:none;stroke-width:2"><use href="#ic-apple"/></svg> <span style="font-family:'Montserrat';font-weight:600;font-size:.85rem">Mac aussi !</span>
+          </div>
+          <div class="pc-badge-clients">
+            <svg class="i-s" style="stroke:var(--dark);fill:none;stroke-width:2"><use href="#ic-check"/></svg> <span style="font-family:'Montserrat';font-weight:700;font-size:.85rem">+10 000 clients</span>
+          </div>
         </div>
-        <a href="tel:0140883030" class="btn" style="font-size:1.1rem"><svg class="i"><use href="#ic-phone"/></svg> 01 40 88 30 30</a>
-        <p style="margin-top:1.25rem;font-size:.8rem;color:#6b7280">Siège : 235 Bld Pereire, 75017 Paris</p>
       </div>
     </div>
   </div>
