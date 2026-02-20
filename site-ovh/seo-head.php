@@ -5,6 +5,7 @@
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Allo PC Dépannage">
   <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="style.css">
   <script type="application/ld+json">
   {

@@ -128,19 +128,32 @@ ul { list-style: none; }
 .drop-item:hover { background: rgba(0,212,255,.1); color: #fff; }
 .nav-phone { display: flex; align-items: center; gap: .5rem; background: linear-gradient(135deg,var(--gold),var(--orange)); color: var(--dark); padding: .5rem 1.25rem; border-radius: 50px; font-family: 'Montserrat'; font-weight: 700; font-size: .875rem; transition: all .3s; box-shadow: 0 4px 12px rgba(245,166,35,.3); }
 .nav-phone:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(245,166,35,.5); }
-/* Mobile */
-.mob-btn { display: none; background: none; border: none; cursor: pointer; padding: .5rem; }
-.mob-btn svg { width: 24px; height: 24px; color: var(--cyan); }
-.mob-menu { display: none; background: rgba(10,22,40,.98); border-top: 1px solid rgba(0,212,255,.15); padding: 1rem; }
-.mob-menu.open { display: block; }
-.mob-menu a { display: block; padding: .75rem 1rem; color: #9ca3af; font-family: 'Montserrat'; font-weight: 600; font-size: .9rem; border-radius: 8px; transition: all .2s; }
-.mob-menu a:hover { background: rgba(0,212,255,.05); color: #fff; }
-.mob-locs { font-size: .7rem; color: var(--gold); text-transform: uppercase; letter-spacing: .1em; padding: .5rem 1rem; margin-top: .5rem; border-top: 1px solid rgba(0,212,255,.1); }
+/* Desktop / Mobile visibility */
+.desktop-only { display: flex; }
+.mobile-only { display: none !important; }
 @media(max-width:767px) {
-  .nav-links,.nav-phone-wrap { display: none; }
-  .mob-btn { display: block; }
-  .mob-flex { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+  .desktop-only { display: none !important; }
+  .mobile-only { display: flex !important; }
 }
+
+/* Mobile panel (CSS checkbox toggle) */
+.mob-panel {
+  display: none;
+  background: rgba(10,22,40,.98);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(0,212,255,.15);
+  padding: 0 0 1rem;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  box-shadow: 0 25px 50px rgba(0,0,0,.5);
+}
+#menu-toggle:checked ~ .mob-panel { display: block; }
+.mob-panel a { display: block; padding: .75rem 1.25rem; color: #9ca3af; font-family: 'Montserrat'; font-weight: 600; font-size: .95rem; border-radius: 8px; transition: all .2s; margin: 0 .5rem; }
+.mob-panel a:hover { background: rgba(0,212,255,.08); color: #fff; }
+.mob-locs { font-size: .7rem; color: var(--gold); text-transform: uppercase; letter-spacing: .1em; padding: .75rem 1.25rem .25rem; margin-top: .5rem; border-top: 1px solid rgba(0,212,255,.1); }
 
 /* ========== HERO ========== */
 .hero-img img { width: 100%; height: auto; }
