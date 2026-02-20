@@ -1,57 +1,24 @@
 # Allo PC Dépannage - Site Vitrine SEO
 
 ## Problem Statement
-Site vitrine optimisé SEO pour Allo PC Dépannage, entreprise de dépannage informatique PC et Mac à Paris depuis 2002. Le site doit être déployable sur un hébergement mutualisé OVH (PHP).
+Site vitrine optimisé SEO pour Allo PC Dépannage, entreprise de dépannage informatique PC et Mac à Paris depuis 2002. Déployable sur hébergement mutualisé OVH (PHP).
 
-## Architecture
-- **Site OVH (production)** : PHP statique dans `/app/site-ovh/` pour hébergement mutualisé
-- **App React** : Frontend React + Tailwind (prévisualisation uniquement)
-- **Design** : Thème tech/futuriste sombre, accents dorés (#f5a623) et cyan (#00d4ff)
-
-## Site OVH - Structure
-```
-site-ovh/
-├── .htaccess              ← HTTPS + URL rewriting + cache + sécurité
-├── index.php              ← Accueil
-├── contact.php            ← Contact avec formulaire email PHP
-├── header.php             ← Navigation desktop + mobile (CSS checkbox toggle)
-├── footer.php             ← Pied de page + barre d'appel mobile
-├── seo-head.php           ← Meta tags SEO + JSON-LD + favicon
-├── location-template.php  ← Template pages localité
-├── style.css              ← CSS unique (breakpoint mobile: 1024px)
-├── 5 pages localité       ← Paris 16/17/8, Neuilly, Levallois
-├── banner-hero.png        ← Bandeau principal
-└── favicon.png            ← Icône navigateur
-```
-
-## Fonctionnalités implémentées
-- Navigation desktop complète avec dropdown localités
-- Menu mobile CSS pur (checkbox toggle) - sans JavaScript
-- Breakpoint desktop/mobile à 1024px (couvre tablettes)
-- Formulaire de contact PHP (envoi email via mail())
-- Pages SEO par localité avec contenu unique
-- Barre d'appel fixe mobile (cachée >1024px)
-- Design responsive complet (mobile, tablette, desktop)
-- Favicon sur toutes les pages
-
-## SEO
-- Meta tags (title, description, keywords) sur chaque page
-- Schema.org JSON-LD LocalBusiness
-- Open Graph pour partage social
-- URLs propres via .htaccess
-- Redirect HTTPS automatique
-- Balises canonical
+## Site OVH - `/app/site-ovh/`
+- `header.php` : Navigation desktop + menu mobile JavaScript (onclick toggle)
+- `style.css` : Breakpoint mobile/desktop à 1024px, IDs pour la visibilité
+- `footer.php` : Pied de page + barre d'appel fixe mobile
+- `seo-head.php` : Meta SEO + JSON-LD + favicon
+- `contact.php` : Formulaire email PHP
+- 5 pages localité + `location-template.php`
+- `.htaccess` : HTTPS + URL rewriting + cache
 
 ## Complété
-- [x] Site PHP complet et fonctionnel
-- [x] Menu mobile CSS pur fonctionnel (breakpoint 1024px)
-- [x] Responsive design validé (mobile 375px, tablette 768px, desktop 1280px)
-- [x] Favicon intégré
-- [x] SEO optimisé (meta tags, JSON-LD, Open Graph)
-- [x] .htaccess (HTTPS, URL rewriting, cache, sécurité)
-- [x] Formulaire de contact PHP
+- [x] Menu mobile JavaScript (remplace la technique CSS checkbox non fiable)
+- [x] Breakpoint 1024px (couvre tablettes)
+- [x] Responsive validé (375px, 768px, 1280px)
+- [x] Favicon + SEO complet
+- [x] Formulaire contact PHP
 
 ## Backlog
-- P2 : Blog SEO avec articles optimisés
+- P2 : Blog SEO
 - P3 : Prise de RDV en ligne
-- P3 : Optimisation des images (compression)
