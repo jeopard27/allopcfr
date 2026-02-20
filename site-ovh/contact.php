@@ -52,14 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </section>
 
 <div class="container" style="padding-bottom:4rem">
-  <div style="display:grid;grid-template-columns:1fr;gap:2.5rem">
-    <!-- Info -->
-    <div style="display:grid;grid-template-columns:1fr;gap:2.5rem">
-      <?php if(true): ?>
-      <div style="display:grid;grid-template-columns:1fr;gap:2.5rem">
-      <?php endif; ?>
-
-      <div style="display:grid;grid-template-columns:1fr 2fr;gap:2.5rem">
+      <div style="display:grid;grid-template-columns:1fr;gap:2.5rem" class="contact-layout">
+        <div style="display:grid;grid-template-columns:1fr 2fr;gap:2.5rem" class="contact-layout">
         <div>
           <h2 style="font-weight:700;font-size:1.25rem;margin-bottom:1.5rem">Informations</h2>
           <div class="flex flex-col gap-6">
