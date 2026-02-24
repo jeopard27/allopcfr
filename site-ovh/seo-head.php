@@ -15,7 +15,7 @@
     "description": "Dépannage informatique PC et Mac à domicile à Paris et région parisienne. Intervention rapide 7j/7 depuis 2002.",
     "url": "https://allopcdepannage.fr",
     "telephone": "+33140883030",
-    "email": "contact@allopcdepannage.com",
+    "email": "contact@allopcdepannage.fr",
     "foundingDate": "2002",
     "priceRange": "$$",
     "address": {"@type": "PostalAddress","streetAddress": "235 Boulevard Pereire","addressLocality": "Paris","postalCode": "75017","addressRegion": "Île-de-France","addressCountry": "FR"},

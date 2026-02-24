@@ -9,7 +9,7 @@
         <p style="color:#9ca3af;font-size:.9rem;line-height:1.6;margin-bottom:1.5rem">Depuis 2002, votre partenaire informatique de confiance à Paris. Dépannage PC et Mac 7j/7.</p>
         <div class="flex flex-col gap-3">
           <a href="tel:0140883030" class="flex items-center gap-3" style="color:#9ca3af;font-size:.9rem"><svg class="i-s" style="stroke:var(--gold)"><use href="#ic-phone"/></svg> 01 40 88 30 30</a>
-          <a href="mailto:contact@allopcdepannage.com" class="flex items-center gap-3" style="color:#9ca3af;font-size:.9rem"><svg class="i-s" style="stroke:var(--cyan)"><use href="#ic-mail"/></svg> contact@allopcdepannage.com</a>
+          <a href="mailto:contact@allopcdepannage.fr" class="flex items-center gap-3" style="color:#9ca3af;font-size:.9rem"><svg class="i-s" style="stroke:var(--cyan)"><use href="#ic-mail"/></svg> contact@allopcdepannage.fr</a>
           <span class="flex items-center gap-3" style="color:#9ca3af;font-size:.9rem"><svg class="i-s" style="stroke:var(--gold);flex-shrink:0"><use href="#ic-pin"/></svg> 235 Bld Pereire, 75017 Paris</span>
         </div>
       </div>
